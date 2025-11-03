@@ -1,4 +1,4 @@
-# Databricks → Microsoft Fabric Data Mirroring
+# Secure Open Mirroring from Azure Databricks to Microsoft Fabric
 
 ## Overview
 
@@ -152,5 +152,6 @@ This staged pattern separates compute with no internet egress (Databricks) from 
 This pattern enables Databricks to act as the trusted processing layer while securely and audibly handing off datasets to Microsoft Fabric Lakehouse. By combining NAT Gateway (single egress IP), Azure Firewall (FQDN allow-list), route tables, and least-privilege Fabric permissions, you achieve a tightly controlled mirroring process suitable for production data pipelines.
 
 ---
+
 
 **Author:** Bharath Kumar S
