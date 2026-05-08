@@ -1,0 +1,13 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/ontology/relationshipType/1.0.0/schema.json",
+  "namespace": "usertypes",
+  "id": "5846291757916088430",
+  "name": "ClaimSummary_has_Patient360",
+  "namespaceType": "Imported",
+  "source": {
+    "entityTypeId": "82242118981034"
+  },
+  "target": {
+    "entityTypeId": "113667033864759"
+  }
+}

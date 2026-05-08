@@ -1,0 +1,29 @@
+{
+  "project": {
+    "projectType": "OneLake",
+    "folderPath": "dbt"
+  },
+  "profile": {
+    "profileType": "DataWarehouse",
+    "schema": "Silver",
+    "connectionSettings": {
+      "name": "HackathonWH",
+      "properties": {
+        "type": "DataWarehouse",
+        "typeProperties": {
+          "workspaceId": "d2776184-f5ee-462d-8cf2-0da38898f998",
+          "artifactId": "54d31e4b-587a-4cb3-8c6c-23ebb15fca6d",
+          "endPoint": "yti5dvmbs5me3glokrsrfp3n2e-qrqxpuxo6uwundhsbwryrghzta.datawarehouse.fabric.microsoft.com"
+        }
+      }
+    }
+  },
+  "command": {
+    "operation": "build",
+    "arguments": {
+      "exclude": "",
+      "fullRefresh": true,
+      "threads": 4
+    }
+  }
+}

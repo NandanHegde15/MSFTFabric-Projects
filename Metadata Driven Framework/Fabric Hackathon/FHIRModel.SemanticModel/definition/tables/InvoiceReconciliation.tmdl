@@ -1,0 +1,365 @@
+table InvoiceReconciliation
+	lineageTag: 234377b5-6366-4901-b722-4c3bde9661bb
+	sourceLineageTag: [Gold].[InvoiceReconciliation]
+
+	column invoice_sk
+		dataType: string
+		lineageTag: a2ed688f-f915-42bd-b179-919a84e9cca8
+		sourceLineageTag: invoice_sk
+		summarizeBy: none
+		sourceColumn: invoice_sk
+
+		annotation SummarizationSetBy = Automatic
+
+	column invoice_id
+		dataType: string
+		lineageTag: 5e72fa5c-8143-4edd-be2e-7db535acac32
+		sourceLineageTag: invoice_id
+		summarizeBy: none
+		sourceColumn: invoice_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column invoice_status
+		dataType: string
+		lineageTag: 241c1552-4b8b-4f07-8c28-dcab8fb68a2f
+		sourceLineageTag: invoice_status
+		summarizeBy: none
+		sourceColumn: invoice_status
+
+		annotation SummarizationSetBy = Automatic
+
+	column invoice_date
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 9bf1d140-2677-4e5a-8410-19c1293bde59
+		sourceLineageTag: invoice_date
+		summarizeBy: none
+		sourceColumn: invoice_date
+
+		annotation SummarizationSetBy = Automatic
+
+	column claim_id
+		dataType: string
+		lineageTag: bac77025-433c-4dae-8e23-77eea07fc2b8
+		sourceLineageTag: claim_id
+		summarizeBy: none
+		sourceColumn: claim_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column claim_type
+		dataType: string
+		lineageTag: 3bca09af-52bb-442d-a7be-8a39f7cdda9e
+		sourceLineageTag: claim_type
+		summarizeBy: none
+		sourceColumn: claim_type
+
+		annotation SummarizationSetBy = Automatic
+
+	column claim_status
+		dataType: string
+		lineageTag: 5570dd39-61f8-4d0f-834d-9df637d5a565
+		sourceLineageTag: claim_status
+		summarizeBy: none
+		sourceColumn: claim_status
+
+		annotation SummarizationSetBy = Automatic
+
+	column service_start_date
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: eeb1487e-a375-4fc0-b2a4-5fd3cb53dce5
+		sourceLineageTag: service_start_date
+		summarizeBy: none
+		sourceColumn: service_start_date
+
+		annotation SummarizationSetBy = Automatic
+
+	column service_end_date
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 99ce18ad-1b32-4bb4-9353-5c6cb1bcd015
+		sourceLineageTag: service_end_date
+		summarizeBy: none
+		sourceColumn: service_end_date
+
+		annotation SummarizationSetBy = Automatic
+
+	column claimed_amount
+		dataType: double
+		lineageTag: 88dd210a-e50d-4973-8896-19f86daa4ff8
+		sourceLineageTag: claimed_amount
+		summarizeBy: sum
+		sourceColumn: claimed_amount
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column currency
+		dataType: string
+		lineageTag: fac43d7e-d7bd-4bf1-97db-288442e488e3
+		sourceLineageTag: currency
+		summarizeBy: none
+		sourceColumn: currency
+
+		annotation SummarizationSetBy = Automatic
+
+	column patient_id
+		dataType: string
+		lineageTag: 9da07cf3-5f77-447e-8667-cf51f741620f
+		sourceLineageTag: patient_id
+		summarizeBy: none
+		sourceColumn: patient_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column patient_name
+		dataType: string
+		lineageTag: 320f69fa-8c2f-4300-b1ce-211252243e01
+		sourceLineageTag: patient_name
+		summarizeBy: none
+		sourceColumn: patient_name
+
+		annotation SummarizationSetBy = Automatic
+
+	column patient_gender
+		dataType: string
+		lineageTag: 085b13ce-eaa1-4358-8668-5160d43045bb
+		sourceLineageTag: patient_gender
+		summarizeBy: none
+		sourceColumn: patient_gender
+
+		annotation SummarizationSetBy = Automatic
+
+	column address_city
+		dataType: string
+		lineageTag: 7e7fa0eb-f29b-46b3-9374-baf8a4be641b
+		sourceLineageTag: address_city
+		summarizeBy: none
+		sourceColumn: address_city
+
+		annotation SummarizationSetBy = Automatic
+
+	column address_state
+		dataType: string
+		lineageTag: 90e367f2-6420-42ed-817d-9fd3e1331443
+		sourceLineageTag: address_state
+		summarizeBy: none
+		sourceColumn: address_state
+
+		annotation SummarizationSetBy = Automatic
+
+	column issuer_display
+		dataType: string
+		lineageTag: d7deb17e-1f40-47cf-aa1b-fa57c3b5d67a
+		sourceLineageTag: issuer_display
+		summarizeBy: none
+		sourceColumn: issuer_display
+
+		annotation SummarizationSetBy = Automatic
+
+	column issuer_identifier_value
+		dataType: string
+		lineageTag: 0c7c27e1-8d9d-4236-8e37-65f081646f11
+		sourceLineageTag: issuer_identifier_value
+		summarizeBy: none
+		sourceColumn: issuer_identifier_value
+
+		annotation SummarizationSetBy = Automatic
+
+	column issuer_org_name
+		dataType: string
+		lineageTag: 61014d18-b7d4-4683-b98c-d5f29ffb419b
+		sourceLineageTag: issuer_org_name
+		summarizeBy: none
+		sourceColumn: issuer_org_name
+
+		annotation SummarizationSetBy = Automatic
+
+	column total_gross_amount
+		dataType: double
+		lineageTag: dae38869-f283-4573-b344-f574ccb70f14
+		sourceLineageTag: total_gross_amount
+		summarizeBy: sum
+		sourceColumn: total_gross_amount
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column total_gross_currency
+		dataType: string
+		lineageTag: e009e552-4d0f-4122-9e46-1b5b18543423
+		sourceLineageTag: total_gross_currency
+		summarizeBy: none
+		sourceColumn: total_gross_currency
+
+		annotation SummarizationSetBy = Automatic
+
+	column total_net_amount
+		dataType: double
+		lineageTag: fd2f81e4-b4eb-4a93-8120-073e2ef22cdb
+		sourceLineageTag: total_net_amount
+		summarizeBy: sum
+		sourceColumn: total_net_amount
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column total_net_currency
+		dataType: string
+		lineageTag: b0142ede-795a-4904-82eb-a2615f50a03e
+		sourceLineageTag: total_net_currency
+		summarizeBy: none
+		sourceColumn: total_net_currency
+
+		annotation SummarizationSetBy = Automatic
+
+	column base_charge
+		dataType: double
+		lineageTag: fc3fe204-f5f7-4a6f-acbe-74421dc760d8
+		sourceLineageTag: base_charge
+		summarizeBy: sum
+		sourceColumn: base_charge
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column tax_amount
+		dataType: double
+		lineageTag: 55aea6eb-f415-438c-9cbf-fd41594f1b14
+		sourceLineageTag: tax_amount
+		summarizeBy: sum
+		sourceColumn: tax_amount
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column discount_amount
+		dataType: double
+		lineageTag: 1cd8f334-83be-42d3-9ec9-98a6c349644a
+		sourceLineageTag: discount_amount
+		summarizeBy: sum
+		sourceColumn: discount_amount
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column deduction_amount
+		dataType: double
+		lineageTag: 46dfdef4-3360-429e-86e5-b2f6f0299f34
+		sourceLineageTag: deduction_amount
+		summarizeBy: sum
+		sourceColumn: deduction_amount
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column surcharge_amount
+		dataType: double
+		lineageTag: 2a658d7a-0877-4798-b141-695d01fd1b30
+		sourceLineageTag: surcharge_amount
+		summarizeBy: sum
+		sourceColumn: surcharge_amount
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column informational_amount
+		dataType: double
+		lineageTag: 94ff175e-03ec-409f-930b-2dfc74b9d98f
+		sourceLineageTag: informational_amount
+		summarizeBy: sum
+		sourceColumn: informational_amount
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column invoice_line_count
+		dataType: int64
+		formatString: 0
+		lineageTag: d3c913de-95c7-4756-879b-8f4e5e8ae221
+		sourceLineageTag: invoice_line_count
+		summarizeBy: sum
+		sourceColumn: invoice_line_count
+
+		annotation SummarizationSetBy = Automatic
+
+	column gross_variance
+		dataType: double
+		lineageTag: 15f17cbd-0ecd-4a14-b909-88359c461c84
+		sourceLineageTag: gross_variance
+		summarizeBy: sum
+		sourceColumn: gross_variance
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column net_variance
+		dataType: double
+		lineageTag: 5666977e-4e08-4029-93cd-5d1660710e8a
+		sourceLineageTag: net_variance
+		summarizeBy: sum
+		sourceColumn: net_variance
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column net_to_claimed_pct
+		dataType: double
+		lineageTag: 090314d8-cca4-42ef-bc3a-f7206ee5a4c9
+		sourceLineageTag: net_to_claimed_pct
+		summarizeBy: sum
+		sourceColumn: net_to_claimed_pct
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column note_text
+		dataType: string
+		lineageTag: 79928e30-0edd-42ca-bbcd-864e5135f7fa
+		sourceLineageTag: note_text
+		summarizeBy: none
+		sourceColumn: note_text
+
+		annotation SummarizationSetBy = Automatic
+
+	column invoice_last_updated
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: f123f0c6-316d-4588-bb49-f4e5eab7a71a
+		sourceLineageTag: invoice_last_updated
+		summarizeBy: none
+		sourceColumn: invoice_last_updated
+
+		annotation SummarizationSetBy = Automatic
+
+	column gold_loaded_at
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 2d74e211-65a9-412b-b4d0-9efd04c234e0
+		sourceLineageTag: gold_loaded_at
+		summarizeBy: none
+		sourceColumn: gold_loaded_at
+
+		annotation SummarizationSetBy = Automatic
+
+	partition InvoiceReconciliation = entity
+		mode: directLake
+		source
+			entityName: InvoiceReconciliation
+			schemaName: Gold
+			expressionSource: 'DirectLake - HackathonWH'
+

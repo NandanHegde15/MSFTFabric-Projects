@@ -1,0 +1,140 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/ontology/dataBinding/1.0.0/schema.json",
+  "id": "88da1483-360e-4ddf-858e-a383e9134cba",
+  "dataBindingConfiguration": {
+    "dataBindingType": "NonTimeSeries",
+    "propertyBindings": [
+      {
+        "sourceColumnName": "report_month",
+        "targetPropertyId": "5846353495357529838"
+      },
+      {
+        "sourceColumnName": "claim_year",
+        "targetPropertyId": "5846353472283687805"
+      },
+      {
+        "sourceColumnName": "claim_month",
+        "targetPropertyId": "5846353447812767158"
+      },
+      {
+        "sourceColumnName": "claim_use",
+        "targetPropertyId": "5846353428240279088"
+      },
+      {
+        "sourceColumnName": "claim_type",
+        "targetPropertyId": "5846353405213113806"
+      },
+      {
+        "sourceColumnName": "insurer_org_id",
+        "targetPropertyId": "5846353383675031330"
+      },
+      {
+        "sourceColumnName": "insurer_name",
+        "targetPropertyId": "5846353360626487811"
+      },
+      {
+        "sourceColumnName": "insurer_type",
+        "targetPropertyId": "5846353333714942590"
+      },
+      {
+        "sourceColumnName": "insurer_state",
+        "targetPropertyId": "5846353301002142129"
+      },
+      {
+        "sourceColumnName": "facility_id",
+        "targetPropertyId": "5846353280139775824"
+      },
+      {
+        "sourceColumnName": "facility_name",
+        "targetPropertyId": "5846353247308905948"
+      },
+      {
+        "sourceColumnName": "facility_city",
+        "targetPropertyId": "5846353218623234545"
+      },
+      {
+        "sourceColumnName": "facility_state",
+        "targetPropertyId": "5846353187931122692"
+      },
+      {
+        "sourceColumnName": "patient_state",
+        "targetPropertyId": "5846353160812754837"
+      },
+      {
+        "sourceColumnName": "total_claims",
+        "targetPropertyId": "5846353131110674361"
+      },
+      {
+        "sourceColumnName": "unique_patients",
+        "targetPropertyId": "5846353103434602156"
+      },
+      {
+        "sourceColumnName": "total_invoices",
+        "targetPropertyId": "5846353074842335995"
+      },
+      {
+        "sourceColumnName": "total_line_items",
+        "targetPropertyId": "5846353048839771656"
+      },
+      {
+        "sourceColumnName": "total_units_claimed",
+        "targetPropertyId": "5846353020821189670"
+      },
+      {
+        "sourceColumnName": "active_claims",
+        "targetPropertyId": "5846352994463029896"
+      },
+      {
+        "sourceColumnName": "cancelled_claims",
+        "targetPropertyId": "5846352967929463110"
+      },
+      {
+        "sourceColumnName": "errored_claims",
+        "targetPropertyId": "5846352938143217543"
+      },
+      {
+        "sourceColumnName": "total_claimed_amount",
+        "targetPropertyId": "5846352911562930854"
+      },
+      {
+        "sourceColumnName": "total_items_net",
+        "targetPropertyId": "5846352880726563308"
+      },
+      {
+        "sourceColumnName": "total_invoiced_gross",
+        "targetPropertyId": "5846352857733676862"
+      },
+      {
+        "sourceColumnName": "total_invoiced_net",
+        "targetPropertyId": "5846352827092478966"
+      },
+      {
+        "sourceColumnName": "total_discounts_given",
+        "targetPropertyId": "5846352798671097037"
+      },
+      {
+        "sourceColumnName": "collection_rate_pct",
+        "targetPropertyId": "5846352776571939789"
+      },
+      {
+        "sourceColumnName": "avg_claim_amount",
+        "targetPropertyId": "5846352744412749769"
+      },
+      {
+        "sourceColumnName": "avg_invoice_net",
+        "targetPropertyId": "5846352718478940288"
+      },
+      {
+        "sourceColumnName": "gold_loaded_at",
+        "targetPropertyId": "5846352688805209904"
+      }
+    ],
+    "sourceTableProperties": {
+      "sourceType": "LakehouseTable",
+      "workspaceId": "d2776184-f5ee-462d-8cf2-0da38898f998",
+      "itemId": "54d31e4b-587a-4cb3-8c6c-23ebb15fca6d",
+      "sourceTableName": "FinancialSummaryByOrg",
+      "sourceSchema": "Gold"
+    }
+  }
+}

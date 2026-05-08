@@ -1,0 +1,204 @@
+version: 2
+
+models:
+  # ──────────────────────────────────────────────────────────────────────────
+  # dim_patient  (SCD2)
+  # ──────────────────────────────────────────────────────────────────────────
+  - name: Patient
+    description: >
+      SCD Type 2 patient dimension.  One row per patient version; is_current=1
+      is the active record.  Effective date window derived from meta_lastupdated.
+    columns:
+      - name: patient_sk
+        description: SHA2-256 surrogate key (patient_id + meta_lastupdated).
+        tests: [not_null, unique]
+      - name: patient_id
+        description: FHIR Patient.id – business key.
+        tests: [not_null]
+      - name: is_current
+        description: 1 = active / most-recent version; 0 = historical.
+        tests:
+          - accepted_values:
+              values: [0, 1]
+      - name: effective_start_date
+        tests: [not_null]
+      - name: gender
+        tests:
+          - accepted_values:
+              values: ['male', 'female', 'other', 'unknown']
+              config:
+                severity: warn
+
+  # ──────────────────────────────────────────────────────────────────────────
+  # dim_organization  (SCD2)
+  # ──────────────────────────────────────────────────────────────────────────
+  - name: Organization
+    description: >
+      SCD Type 2 organization dimension. Covers payers, providers and
+      facilities.  parent_org_id enables self-referencing hierarchy.
+    columns:
+      - name: org_sk
+        description: SHA2-256 surrogate key (org_id + meta_lastupdated).
+        tests: [not_null, unique]
+      - name: org_id
+        description: FHIR Organization.id – business key.
+        tests: [not_null]
+      - name: is_current
+        tests:
+          - accepted_values:
+              values: [0, 1]
+      - name: effective_start_date
+        tests: [not_null]
+
+  # ──────────────────────────────────────────────────────────────────────────
+  # dim_coverage  (SCD2)
+  # ──────────────────────────────────────────────────────────────────────────
+  - name: Coverage
+    description: >
+      SCD Type 2 insurance coverage dimension.  Links patient to payor org.
+    columns:
+      - name: coverage_sk
+        description: SHA2-256 surrogate key (coverage_id + meta_lastupdated).
+        tests: [not_null, unique]
+      - name: coverage_id
+        description: FHIR Coverage.id – business key.
+        tests: [not_null]
+      - name: patient_id
+        description: FK → dim_patient.patient_id.
+        tests:
+          - not_null
+          - relationships:
+              to: ref('dim_patient')
+              field: patient_id
+      - name: payor_org_id
+        description: FK → dim_organization.org_id.
+        tests:
+          - relationships:
+              to: ref('dim_organization')
+              field: org_id
+              config:
+                severity: warn
+      - name: is_current
+        tests:
+          - accepted_values:
+              values: [0, 1]
+
+  # ──────────────────────────────────────────────────────────────────────────
+  # fact_claim  (Snapshot)
+  # ──────────────────────────────────────────────────────────────────────────
+  - name: Claim
+    description: >
+      Claim header snapshot fact.  All versions retained; is_latest=1 is the
+      current version. One row per claim × version.
+    columns:
+      - name: claim_sk
+        description: SHA2-256 surrogate key (claim_id + meta_lastupdated).
+        tests: [not_null, unique]
+      - name: claim_id
+        description: FHIR Claim.id – business key.
+        tests: [not_null]
+      - name: patient_id
+        description: FK → dim_patient.patient_id.
+        tests: [not_null]
+      - name: is_latest
+        tests:
+          - accepted_values:
+              values: [0, 1]
+      - name: total_amount
+        description: Total claimed amount (numeric).
+
+  # ──────────────────────────────────────────────────────────────────────────
+  # fact_claim_item
+  # ──────────────────────────────────────────────────────────────────────────
+  - name: ClaimItem
+    description: Claim line items – one row per claim × item_sequence.
+    columns:
+      - name: claim_item_sk
+        tests: [not_null]
+      - name: claim_id
+        description: FK → fact_claim.claim_id.
+        tests: [not_null]
+      - name: item_sequence
+        tests: [not_null]
+      - name: net_amount
+        description: Net line item amount.
+
+  # ──────────────────────────────────────────────────────────────────────────
+  # fact_claim_diagnosis
+  # ──────────────────────────────────────────────────────────────────────────
+  - name: ClaimDiagnosis
+    description: Normalised diagnosis codes per claim.
+    columns:
+      - name: claim_id
+        tests: [not_null]
+      - name: diagnosis_sequence
+        tests: [not_null]
+      - name: diagnosis_code
+        description: ICD-10 or SNOMED diagnosis code.
+
+  # ──────────────────────────────────────────────────────────────────────────
+  # fact_claim_procedure
+  # ──────────────────────────────────────────────────────────────────────────
+  - name: ClaimProcedure
+    description: Normalised procedures per claim.
+    columns:
+      - name: claim_id
+        tests: [not_null]
+      - name: procedure_sequence
+        tests: [not_null]
+
+  # ──────────────────────────────────────────────────────────────────────────
+  # fact_claim_care_team
+  # ──────────────────────────────────────────────────────────────────────────
+  - name: ClaimCareTeam
+    description: Providers assigned to each claim.
+    columns:
+      - name: claim_id
+        tests: [not_null]
+      - name: care_team_sequence
+        tests: [not_null]
+      - name: provider_id
+        description: FK to Practitioner (external resource, not in this dataset).
+
+  # ──────────────────────────────────────────────────────────────────────────
+  # fact_invoice  (Snapshot)
+  # ──────────────────────────────────────────────────────────────────────────
+  - name: Invoice
+    description: >
+      Invoice header snapshot fact.  Settles a Claim.  All versions retained;
+      is_latest=1 is the current version.
+    columns:
+      - name: invoice_sk
+        tests: [not_null, unique]
+      - name: invoice_id
+        tests: [not_null]
+      - name: patient_id
+        tests: [not_null]
+      - name: source_claim_id
+        description: FK → fact_claim.claim_id (the claim being settled).
+      - name: is_latest
+        tests:
+          - accepted_values:
+              values: [0, 1]
+      - name: total_gross_amount
+        description: Total gross invoice amount.
+      - name: total_net_amount
+        description: Total net invoice amount (after deductions).
+
+  # ──────────────────────────────────────────────────────────────────────────
+  # fact_invoice_line_item
+  # ──────────────────────────────────────────────────────────────────────────
+  - name: InvoiceLineItem
+    description: Invoice line items with price components.
+    columns:
+      - name: invoice_line_sk
+        tests: [not_null]
+      - name: invoice_id
+        description: FK → fact_invoice.invoice_id.
+        tests: [not_null]
+      - name: line_item_sequence
+        tests: [not_null]
+      - name: price_component_type
+        description: "base | surcharge | deduction | discount | tax | informational"
+      - name: price_component_amount
+        description: Monetary amount for this price component.

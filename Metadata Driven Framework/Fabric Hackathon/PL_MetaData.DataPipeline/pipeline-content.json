@@ -1,0 +1,105 @@
+{
+  "properties": {
+    "activities": [
+      {
+        "type": "Lookup",
+        "typeProperties": {
+          "source": {
+            "type": "DataWarehouseSource",
+            "sqlReaderQuery": "SELECT \n    C.TABLE_SCHEMA,\n    C.TABLE_NAME,\n    'You are a data expert. For the table \"' + C.TABLE_SCHEMA + '.' + C.TABLE_NAME + \n    '\", explain the business meaning of the following columns. \nProvide a concise description in STRICT JSON format with no markdown (max 2 lines per column): ' \n    + STRING_AGG('[' + C.COLUMN_NAME + ']', ',') \n        WITHIN GROUP (ORDER BY C.ORDINAL_POSITION) \n    AS Prompt\nFROM INFORMATION_SCHEMA.COLUMNS C\nINNER JOIN INFORMATION_SCHEMA.TABLES T\n    ON C.TABLE_SCHEMA = T.TABLE_SCHEMA\n    AND C.TABLE_NAME = T.TABLE_NAME\nWHERE \n    T.TABLE_TYPE = 'BASE TABLE' \nGROUP BY \n    C.TABLE_SCHEMA,\n    C.TABLE_NAME",
+            "partitionOption": "None",
+            "queryTimeout": "02:00:00"
+          },
+          "datasetSettings": {
+            "type": "DataWarehouseTable",
+            "schema": [],
+            "linkedService": {
+              "name": "HackathonWH",
+              "properties": {
+                "type": "DataWarehouse",
+                "typeProperties": {
+                  "artifactId": "54d31e4b-587a-4cb3-8c6c-23ebb15fca6d",
+                  "endpoint": "yti5dvmbs5me3glokrsrfp3n2e-qrqxpuxo6uwundhsbwryrghzta.datawarehouse.fabric.microsoft.com",
+                  "workspaceId": "d2776184-f5ee-462d-8cf2-0da38898f998"
+                },
+                "annotations": []
+              }
+            },
+            "annotations": []
+          },
+          "firstRowOnly": false
+        },
+        "policy": {
+          "timeout": "0.12:00:00",
+          "retry": 0,
+          "retryIntervalInSeconds": 30,
+          "secureInput": false,
+          "secureOutput": false
+        },
+        "name": "ACT_Lookup_GetEntities",
+        "dependsOn": []
+      },
+      {
+        "type": "ForEach",
+        "typeProperties": {
+          "isSequential": false,
+          "batchCount": 5,
+          "items": {
+            "value": "@activity('ACT_Lookup_GetEntities').output.value",
+            "type": "Expression"
+          },
+          "activities": [
+            {
+              "type": "TridentNotebook",
+              "typeProperties": {
+                "notebookId": "d67f4182-e207-968a-427e-b0d40c844d2f",
+                "workspaceId": "00000000-0000-0000-0000-000000000000",
+                "parameters": {
+                  "schema_name": {
+                    "value": {
+                      "value": "@item().TABLE_SCHEMA",
+                      "type": "Expression"
+                    },
+                    "type": "string"
+                  },
+                  "table_name": {
+                    "value": {
+                      "value": "@item().TABLE_NAME",
+                      "type": "Expression"
+                    },
+                    "type": "string"
+                  },
+                  "prompt": {
+                    "value": {
+                      "value": "@item().Prompt",
+                      "type": "Expression"
+                    },
+                    "type": "string"
+                  }
+                }
+              },
+              "policy": {
+                "timeout": "0.12:00:00",
+                "retry": 0,
+                "retryIntervalInSeconds": 30,
+                "secureInput": false,
+                "secureOutput": false
+              },
+              "name": "ACT_MetaDataNotebook",
+              "dependsOn": []
+            }
+          ]
+        },
+        "name": "ACT_For_Iterations",
+        "dependsOn": [
+          {
+            "activity": "ACT_Lookup_GetEntities",
+            "dependencyConditions": [
+              "Succeeded"
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}

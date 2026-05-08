@@ -1,0 +1,24 @@
+model Model
+	culture: en-US
+	defaultPowerBIDataSourceVersion: powerBI_V3
+	sourceQueryCulture: en-US
+	dataAccessOptions
+		legacyRedirects
+		returnErrorValuesAsNull
+
+annotation PBI_QueryOrder = ["DirectLake - HackathonWH"]
+
+annotation __PBI_TimeIntelligenceEnabled = 1
+
+annotation PBI_ProTooling = ["DirectLakeOnOneLakeInWeb","WebModelingEdit","CopilotTooling"]
+
+ref table Patient360
+ref table InvoiceReconciliation
+ref table ClaimSummary
+ref table FinancialSummaryByOrg
+ref table Date
+ref table LastWorkingDayOfMonth
+ref table Dictionary
+
+ref cultureInfo en-US
+

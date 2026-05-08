@@ -1,0 +1,721 @@
+{
+  "properties": {
+    "activities": [
+      {
+        "type": "Lookup",
+        "typeProperties": {
+          "source": {
+            "type": "FabricSqlDatabaseSource",
+            "sqlReaderQuery": "SELECT\n    ac.*,                     \n    ap.AbsoluteUrl,\n    ap.MaxRequestNumber\nFROM Config.ApiConfig ac\nLEFT JOIN (\n    SELECT\n        ApiConfigId,\n        MAX(CASE WHEN PaginationType = 'AbsoluteUrl'\n                 THEN PaginationValue END) AS AbsoluteUrl,\n        MAX(CASE WHEN PaginationType = 'MaxRequestNumber'\n                 THEN PaginationValue END) AS MaxRequestNumber\n    FROM Config.ApiPagination\n    WHERE PaginationType IN ('AbsoluteUrl', 'MaxRequestNumber')\n    GROUP BY ApiConfigId\n) ap\n    ON ac.ApiConfigId = ap.ApiConfigId;",
+            "partitionOption": "None",
+            "queryTimeout": "02:00:00"
+          },
+          "datasetSettings": {
+            "type": "FabricSqlDatabaseTable",
+            "schema": [],
+            "connectionSettings": {
+              "name": "SqlHackathon",
+              "properties": {
+                "type": "FabricSqlDatabase",
+                "typeProperties": {
+                  "artifactId": "6dd897d0-cacc-a7b9-495a-bc810047bc62",
+                  "workspaceId": "00000000-0000-0000-0000-000000000000"
+                },
+                "externalReferences": {
+                  "connection": "bb02827c-eac2-417e-b83f-62a75c5259b3"
+                },
+                "annotations": []
+              }
+            },
+            "annotations": []
+          },
+          "firstRowOnly": false
+        },
+        "policy": {
+          "timeout": "0.12:00:00",
+          "retry": 0,
+          "retryIntervalInSeconds": 30,
+          "secureInput": false,
+          "secureOutput": false
+        },
+        "name": "ACT_Lookup_GetApiConfig",
+        "dependsOn": [
+          {
+            "activity": "ACT_StoredProcedure_BeginProcessing",
+            "dependencyConditions": [
+              "Succeeded"
+            ]
+          }
+        ]
+      },
+      {
+        "type": "ForEach",
+        "typeProperties": {
+          "batchCount": 4,
+          "items": {
+            "value": "@activity('ACT_Lookup_GetApiConfig').output.value",
+            "type": "Expression"
+          },
+          "activities": [
+            {
+              "type": "Copy",
+              "typeProperties": {
+                "source": {
+                  "type": "RestSource",
+                  "requestMethod": {
+                    "value": "@item().HttpMethod",
+                    "type": "Expression"
+                  },
+                  "paginationRules": {
+                    "AbsoluteUrl": {
+                      "value": "@item().AbsoluteUrl",
+                      "type": "Expression"
+                    },
+                    "MaxRequestNumber": {
+                      "value": "@item().MaxRequestNumber",
+                      "type": "Expression"
+                    }
+                  },
+                  "httpRequestTimeout": "00:01:40",
+                  "requestInterval": "00.00:00:00.010",
+                  "datasetSettings": {
+                    "type": "RestResource",
+                    "typeProperties": {
+                      "relativeUrl": {
+                        "value": "@item().RelativeUrl",
+                        "type": "Expression"
+                      }
+                    },
+                    "schema": [],
+                    "externalReferences": {
+                      "connection": "@item().SourceConnectionId"
+                    },
+                    "annotations": []
+                  }
+                },
+                "sink": {
+                  "type": "JsonSink",
+                  "formatSettings": {
+                    "type": "JsonWriteSettings"
+                  },
+                  "storeSettings": {
+                    "type": "LakehouseWriteSettings"
+                  },
+                  "datasetSettings": {
+                    "type": "Json",
+                    "typeProperties": {
+                      "location": {
+                        "type": "LakehouseLocation",
+                        "folderPath": {
+                          "value": "@item().DestinationPath",
+                          "type": "Expression"
+                        },
+                        "fileName": {
+                          "value": "@concat(pipeline().RunId, '_', item().RelativeUrl, '.', item().FileFormat)",
+                          "type": "Expression"
+                        }
+                      }
+                    },
+                    "schema": {},
+                    "linkedService": {
+                      "name": "HackathonLh",
+                      "properties": {
+                        "type": "Lakehouse",
+                        "typeProperties": {
+                          "artifactId": "2539d5aa-c349-8d61-4771-f39b7df0e8d0",
+                          "workspaceId": "00000000-0000-0000-0000-000000000000",
+                          "rootFolder": "Files"
+                        },
+                        "annotations": []
+                      }
+                    },
+                    "annotations": []
+                  }
+                },
+                "enableStaging": false
+              },
+              "policy": {
+                "timeout": "0.12:00:00",
+                "retry": 0,
+                "retryIntervalInSeconds": 30,
+                "secureInput": false,
+                "secureOutput": false
+              },
+              "name": "ACT_Copydata_APIToLh",
+              "dependsOn": []
+            },
+            {
+              "type": "SqlServerStoredProcedure",
+              "typeProperties": {
+                "storedProcedureName": "[Log].[EntityProcessingInsert]",
+                "storedProcedureParameters": {
+                  "Duration": {
+                    "value": {
+                      "value": "@activity('ACT_Copydata_APIToLh').output.copyDuration",
+                      "type": "Expression"
+                    },
+                    "type": "Int32"
+                  },
+                  "EntityNm": {
+                    "value": {
+                      "value": "@item().ApiName",
+                      "type": "Expression"
+                    },
+                    "type": "String"
+                  },
+                  "FileNm": {
+                    "value": {
+                      "value": "@concat(pipeline().RunId, '_', item().RelativeUrl, '.', item().FileFormat)",
+                      "type": "Expression"
+                    },
+                    "type": "String"
+                  },
+                  "PipelineRunId": {
+                    "value": {
+                      "value": "@pipeline().RunId",
+                      "type": "Expression"
+                    },
+                    "type": "String"
+                  },
+                  "RowCount": {
+                    "value": {
+                      "value": "@activity('ACT_Copydata_APIToLh').output.rowsCopied",
+                      "type": "Expression"
+                    },
+                    "type": "Int32"
+                  },
+                  "RowSize": {
+                    "value": {
+                      "value": "@activity('ACT_Copydata_APIToLh').output.dataRead",
+                      "type": "Expression"
+                    },
+                    "type": "Double"
+                  }
+                }
+              },
+              "connectionSettings": {
+                "name": "SqlHackathon",
+                "properties": {
+                  "type": "FabricSqlDatabase",
+                  "typeProperties": {
+                    "artifactId": "6dd897d0-cacc-a7b9-495a-bc810047bc62",
+                    "workspaceId": "00000000-0000-0000-0000-000000000000"
+                  },
+                  "externalReferences": {
+                    "connection": "bb02827c-eac2-417e-b83f-62a75c5259b3"
+                  },
+                  "annotations": []
+                }
+              },
+              "policy": {
+                "timeout": "0.12:00:00",
+                "retry": 0,
+                "retryIntervalInSeconds": 30,
+                "secureInput": false,
+                "secureOutput": false
+              },
+              "name": "ACT_StoredProcedure_EntityLog",
+              "dependsOn": [
+                {
+                  "activity": "ACT_Copydata_APIToLh",
+                  "dependencyConditions": [
+                    "Succeeded"
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "TridentNotebook",
+              "typeProperties": {
+                "notebookId": "675efe6b-1c7f-9ef6-4353-d72752ee18d8",
+                "workspaceId": "00000000-0000-0000-0000-000000000000",
+                "parameters": {
+                  "WORKSPACE_ID": {
+                    "value": {
+                      "value": "@item().DestinationWorkspaceId",
+                      "type": "Expression"
+                    },
+                    "type": "string"
+                  },
+                  "LAKEHOUSE_ID": {
+                    "value": {
+                      "value": "@item().DestinationLakehouseId",
+                      "type": "Expression"
+                    },
+                    "type": "string"
+                  },
+                  "JSON_FILE_PATH": {
+                    "value": {
+                      "value": "@concat(item().DestinationPath,pipeline().RunId, '_', item().RelativeUrl, '.', item().FileFormat)",
+                      "type": "Expression"
+                    },
+                    "type": "string"
+                  },
+                  "TARGET_TABLE": {
+                    "value": {
+                      "value": "@item().RelativeUrl",
+                      "type": "Expression"
+                    },
+                    "type": "string"
+                  }
+                }
+              },
+              "policy": {
+                "timeout": "0.12:00:00",
+                "retry": 0,
+                "retryIntervalInSeconds": 30,
+                "secureInput": false,
+                "secureOutput": false
+              },
+              "name": "ACT_Notebook_DataProcessing",
+              "dependsOn": [
+                {
+                  "activity": "ACT_StoredProcedure_EntityLog",
+                  "dependencyConditions": [
+                    "Succeeded"
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "SqlServerStoredProcedure",
+              "typeProperties": {
+                "storedProcedureName": "[Log].[EntityProcessingInsert]",
+                "storedProcedureParameters": {
+                  "Duration": {
+                    "value": {
+                      "value": "@activity('ACT_Notebook_DataProcessing').output.executionDuration",
+                      "type": "Expression"
+                    },
+                    "type": "Int32"
+                  },
+                  "EntityNm": {
+                    "value": {
+                      "value": "@item().RelativeUrl",
+                      "type": "Expression"
+                    },
+                    "type": "String"
+                  },
+                  "FileNm": {
+                    "value": {
+                      "value": "@concat(pipeline().RunId, '_', item().RelativeUrl, '.', item().FileFormat)",
+                      "type": "Expression"
+                    },
+                    "type": "String"
+                  },
+                  "PipelineRunId": {
+                    "value": {
+                      "value": "@pipeline().RunId",
+                      "type": "Expression"
+                    },
+                    "type": "String"
+                  },
+                  "RowCount": {
+                    "value": {
+                      "value": "@split(\n    json(\n        replace(activity('ACT_Notebook_DataProcessing').output.result.exitValue, '''', '\"')\n    )[0],\n    ': '\n)[1]",
+                      "type": "Expression"
+                    },
+                    "type": "Int32"
+                  },
+                  "RowSize": {
+                    "value": {
+                      "value": "@split(\n    json(\n        replace(activity('ACT_Notebook_DataProcessing').output.result.exitValue, '''', '\"')\n    )[1],\n    ': '\n)[1]",
+                      "type": "Expression"
+                    },
+                    "type": "Double"
+                  }
+                }
+              },
+              "connectionSettings": {
+                "name": "SqlHackathon",
+                "properties": {
+                  "type": "FabricSqlDatabase",
+                  "typeProperties": {
+                    "artifactId": "6dd897d0-cacc-a7b9-495a-bc810047bc62",
+                    "workspaceId": "00000000-0000-0000-0000-000000000000"
+                  },
+                  "externalReferences": {
+                    "connection": "bb02827c-eac2-417e-b83f-62a75c5259b3"
+                  },
+                  "annotations": []
+                }
+              },
+              "policy": {
+                "timeout": "0.12:00:00",
+                "retry": 0,
+                "retryIntervalInSeconds": 30,
+                "secureInput": false,
+                "secureOutput": false
+              },
+              "name": "ACT_StoredProcedure_EntityLog_NB",
+              "dependsOn": [
+                {
+                  "activity": "ACT_Notebook_DataProcessing",
+                  "dependencyConditions": [
+                    "Succeeded"
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        "name": "ACT_ForEachProcessApiEndpoint",
+        "dependsOn": [
+          {
+            "activity": "ACT_Lookup_GetApiConfig",
+            "dependencyConditions": [
+              "Succeeded"
+            ]
+          }
+        ]
+      },
+      {
+        "type": "SqlServerStoredProcedure",
+        "typeProperties": {
+          "storedProcedureName": "[Log].[BeginPipelineProcessing]",
+          "storedProcedureParameters": {
+            "PipelineNm": {
+              "value": {
+                "value": "@pipeline().PipelineName",
+                "type": "Expression"
+              },
+              "type": "String"
+            },
+            "PipelineRunId": {
+              "value": {
+                "value": "@pipeline().RunId",
+                "type": "Expression"
+              },
+              "type": "String"
+            },
+            "PipelineStartDt": {
+              "value": {
+                "value": "@utcNow()",
+                "type": "Expression"
+              },
+              "type": "DateTime"
+            },
+            "TriggerType": {
+              "value": {
+                "value": "@pipeline().TriggerType",
+                "type": "Expression"
+              },
+              "type": "String"
+            },
+            "WorkspaceId": {
+              "value": {
+                "value": "@pipeline().DataFactory",
+                "type": "Expression"
+              },
+              "type": "String"
+            }
+          }
+        },
+        "connectionSettings": {
+          "name": "SqlHackathon",
+          "properties": {
+            "type": "FabricSqlDatabase",
+            "typeProperties": {
+              "artifactId": "6dd897d0-cacc-a7b9-495a-bc810047bc62",
+              "workspaceId": "00000000-0000-0000-0000-000000000000"
+            },
+            "externalReferences": {
+              "connection": "bb02827c-eac2-417e-b83f-62a75c5259b3"
+            },
+            "annotations": []
+          }
+        },
+        "policy": {
+          "timeout": "0.12:00:00",
+          "retry": 0,
+          "retryIntervalInSeconds": 30,
+          "secureInput": false,
+          "secureOutput": false
+        },
+        "name": "ACT_StoredProcedure_BeginProcessing",
+        "dependsOn": []
+      },
+      {
+        "type": "SqlServerStoredProcedure",
+        "typeProperties": {
+          "storedProcedureName": "[Log].[EndPipelineProcessing]",
+          "storedProcedureParameters": {
+            "PipelineEndDt": {
+              "value": {
+                "value": "@utcNow()",
+                "type": "Expression"
+              },
+              "type": "DateTime"
+            },
+            "PipelineNm": {
+              "value": {
+                "value": "@pipeline().PipelineName",
+                "type": "Expression"
+              },
+              "type": "String"
+            },
+            "PipelineRunId": {
+              "value": {
+                "value": "@pipeline().RunId",
+                "type": "Expression"
+              },
+              "type": "String"
+            },
+            "Status": {
+              "value": "SUCCESS",
+              "type": "String"
+            },
+            "WorkspaceId": {
+              "value": {
+                "value": "@pipeline().DataFactory",
+                "type": "Expression"
+              },
+              "type": "String"
+            }
+          }
+        },
+        "connectionSettings": {
+          "name": "SqlHackathon",
+          "properties": {
+            "type": "FabricSqlDatabase",
+            "typeProperties": {
+              "artifactId": "6dd897d0-cacc-a7b9-495a-bc810047bc62",
+              "workspaceId": "00000000-0000-0000-0000-000000000000"
+            },
+            "externalReferences": {
+              "connection": "bb02827c-eac2-417e-b83f-62a75c5259b3"
+            },
+            "annotations": []
+          }
+        },
+        "policy": {
+          "timeout": "0.12:00:00",
+          "retry": 0,
+          "retryIntervalInSeconds": 30,
+          "secureInput": false,
+          "secureOutput": false
+        },
+        "name": "ACT_StoredProcedure_EndProcessing",
+        "dependsOn": [
+          {
+            "activity": "ACT_Invoke_AIGenMetadata",
+            "dependencyConditions": [
+              "Succeeded"
+            ]
+          }
+        ]
+      },
+      {
+        "type": "InvokePipeline",
+        "typeProperties": {
+          "parameters": {},
+          "waitOnCompletion": true,
+          "workspaceId": "00000000-0000-0000-0000-000000000000",
+          "pipelineId": "7d23528b-a3bf-96e9-4f0d-e5d48e5ff9cc",
+          "operationType": "InvokeFabricPipeline"
+        },
+        "externalReferences": {
+          "connection": "1948b9ce-9f48-4784-920e-cd587358da77"
+        },
+        "policy": {
+          "timeout": "0.12:00:00",
+          "retry": 0,
+          "retryIntervalInSeconds": 30,
+          "secureInput": false,
+          "secureOutput": false
+        },
+        "name": "ACT_Invoke_AIGenMetadata",
+        "dependsOn": [
+          {
+            "activity": "ACT_NB_RunDBT",
+            "dependencyConditions": [
+              "Succeeded"
+            ]
+          },
+          {
+            "activity": "ACT_RunDBT",
+            "dependencyConditions": [
+              "Succeeded"
+            ]
+          }
+        ]
+      },
+      {
+        "type": "TridentNotebook",
+        "typeProperties": {
+          "notebookId": "0246c92c-8022-485e-967a-147df988f9f0",
+          "workspaceId": "d2776184-f5ee-462d-8cf2-0da38898f998"
+        },
+        "policy": {
+          "timeout": "0.12:00:00",
+          "retry": 0,
+          "retryIntervalInSeconds": 30,
+          "secureInput": false,
+          "secureOutput": false
+        },
+        "name": "ACT_NB_RunDBT",
+        "state": "Inactive",
+        "onInactiveMarkAs": "Succeeded",
+        "dependsOn": [
+          {
+            "activity": "ACT_ForEachProcessApiEndpoint",
+            "dependencyConditions": [
+              "Succeeded"
+            ]
+          }
+        ]
+      },
+      {
+        "type": "InvokeDataBuildToolJob",
+        "typeProperties": {
+          "dataBuildToolJobId": "5dd1923c-ed5d-bd57-468f-4681ffb2c842",
+          "workspaceId": "00000000-0000-0000-0000-000000000000",
+          "fullRefresh": true,
+          "threads": 4
+        },
+        "externalReferences": {
+          "connection": "8ef3ded9-7439-43c1-9630-3fea5c6626c8"
+        },
+        "policy": {
+          "timeout": "0.12:00:00",
+          "retry": 0,
+          "retryIntervalInSeconds": 30,
+          "secureInput": false,
+          "secureOutput": false
+        },
+        "name": "ACT_RunDBT",
+        "dependsOn": [
+          {
+            "activity": "ACT_ForEachProcessApiEndpoint",
+            "dependencyConditions": [
+              "Succeeded"
+            ]
+          }
+        ]
+      },
+      {
+        "type": "SetVariable",
+        "typeProperties": {
+          "variableName": "ErrorLog",
+          "value": {
+            "value": "@concat(activity('ACT_Copydata_APIToLh')?.error?.message,'|^',activity('ACT_Lookup_GetApiConfig')?.error?.message,'|^',activity('ACT_NB_RunDBT')?.error?.message,'|^',\nactivity('ACT_RunDBT')?.error?.message,'|^',\nactivity('ACT_Invoke_AIGenMetadata')?.error?.message,'|^',\nactivity('ACT_StoredProcedure_BeginProcessing')?.error?.message,'|^',\nactivity('ACT_StoredProcedure_EntityLog')?.error?.message,'|^',\nactivity('ACT_Notebook_DataProcessing')?.error?.message)\n",
+            "type": "Expression"
+          }
+        },
+        "policy": {
+          "secureInput": false,
+          "secureOutput": false
+        },
+        "name": "ACT_SetError",
+        "dependsOn": [
+          {
+            "activity": "ACT_StoredProcedure_BeginProcessing",
+            "dependencyConditions": [
+              "Completed"
+            ]
+          },
+          {
+            "activity": "ACT_Lookup_GetApiConfig",
+            "dependencyConditions": [
+              "Completed",
+              "Skipped"
+            ]
+          },
+          {
+            "activity": "ACT_ForEachProcessApiEndpoint",
+            "dependencyConditions": [
+              "Completed",
+              "Skipped"
+            ]
+          },
+          {
+            "activity": "ACT_RunDBT",
+            "dependencyConditions": [
+              "Completed",
+              "Skipped"
+            ]
+          },
+          {
+            "activity": "ACT_NB_RunDBT",
+            "dependencyConditions": [
+              "Completed",
+              "Skipped"
+            ]
+          },
+          {
+            "activity": "ACT_Invoke_AIGenMetadata",
+            "dependencyConditions": [
+              "Completed",
+              "Skipped"
+            ]
+          }
+        ]
+      },
+      {
+        "type": "IfCondition",
+        "typeProperties": {
+          "expression": {
+            "value": "@greater(length(trim(replace(variables('ErrorLog'), '|^', ''))), 0)",
+            "type": "Expression"
+          },
+          "ifTrueActivities": [
+            {
+              "type": "Office365Email",
+              "typeProperties": {
+                "body": "@concat(\r\n    variables('ErrorLog'),\r\n    '<p><b>Pipeline Run Details:</b><br>',\r\n    'RunId: ', pipeline().RunId, '<br>',\r\n    'Subject: ', pipeline()?.TriggerEvent?.Subject, '<br>',\r\n    'Source: ', pipeline()?.TriggerEvent?.Source, '<br>',\r\n    'Type: ', pipeline()?.TriggerEvent?.Type,\r\n    '</p>'\r\n)",
+                "to": "hemanth.kotha@synapx.com;nandan.hegde@synapx.com",
+                "subject": {
+                  "value": "@concat('[FAILURE] - FABRIC HACKATHON - ',utcNow())",
+                  "type": "Expression"
+                }
+              },
+              "externalReferences": {
+                "connection": "365f39a4-2cc5-48be-82c0-6ac57352c21a"
+              },
+              "policy": {
+                "timeout": "0.12:00:00",
+                "retry": 0,
+                "retryIntervalInSeconds": 30,
+                "secureInput": false,
+                "secureOutput": false
+              },
+              "name": "ACT_Notification",
+              "dependsOn": []
+            },
+            {
+              "type": "Fail",
+              "typeProperties": {
+                "message": "Failed",
+                "errorCode": "ERR1001"
+              },
+              "name": "Fail",
+              "dependsOn": [
+                {
+                  "activity": "ACT_Notification",
+                  "dependencyConditions": [
+                    "Succeeded"
+                  ]
+                }
+              ]
+            }
+          ],
+          "ifFalseActivities": []
+        },
+        "name": "ACT_ConditionCheck",
+        "dependsOn": [
+          {
+            "activity": "ACT_SetError",
+            "dependencyConditions": [
+              "Succeeded"
+            ]
+          }
+        ]
+      }
+    ],
+    "variables": {
+      "ErrorLog": {
+        "type": "String"
+      }
+    }
+  }
+}

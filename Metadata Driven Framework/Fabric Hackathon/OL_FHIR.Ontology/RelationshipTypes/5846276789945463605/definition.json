@@ -1,0 +1,13 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/ontology/relationshipType/1.0.0/schema.json",
+  "namespace": "usertypes",
+  "id": "5846276789945463605",
+  "name": "InvoiceReconciliation_to_ClaimSummary",
+  "namespaceType": "Imported",
+  "source": {
+    "entityTypeId": "96092504800242"
+  },
+  "target": {
+    "entityTypeId": "82242118981034"
+  }
+}

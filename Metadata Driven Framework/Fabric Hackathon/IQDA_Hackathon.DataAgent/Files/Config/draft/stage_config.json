@@ -1,0 +1,4 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/dataAgent/definition/stageConfiguration/1.0.0/schema.json",
+  "aiInstructions": "These instructions are for the overall data agent and will always be sent regardless of the question asked.\nExplain:\n- Rules for planning how to approach each question\n- Which data sources to use for different topics\n- Any terminology or acronyms with consistent meanings across all connected data sources\n- Tone, style, and formatting for finished responses\n\nSupport group by in GQL"
+}

@@ -1,0 +1,38 @@
+CREATE TABLE [Silver].[Invoice] (
+    [invoice_sk]               VARCHAR (64)   NULL,
+    [invoice_id]               VARCHAR (8000) NULL,
+    [patient_id]               VARCHAR (8000) NULL,
+    [patient_display]          VARCHAR (8000) NULL,
+    [recipient_display]        VARCHAR (8000) NULL,
+    [recipient_identifier]     VARCHAR (8000) NULL,
+    [recipient_type]           VARCHAR (8000) NULL,
+    [issuer_display]           VARCHAR (8000) NULL,
+    [issuer_identifier_system] VARCHAR (8000) NULL,
+    [issuer_identifier_value]  VARCHAR (8000) NULL,
+    [issuer_type]              VARCHAR (8000) NULL,
+    [source_claim_id]          VARCHAR (8000) NULL,
+    [invoice_status]           VARCHAR (8000) NULL,
+    [invoice_date]             DATETIME2 (0)  NULL,
+    [identifier_system]        VARCHAR (8000) NULL,
+    [identifier_value]         VARCHAR (8000) NULL,
+    [identifier_type_code]     VARCHAR (8000) NULL,
+    [identifier_type_display]  VARCHAR (8000) NULL,
+    [total_gross_amount]       FLOAT (53)     NULL,
+    [total_gross_currency]     VARCHAR (8000) NULL,
+    [total_net_amount]         FLOAT (53)     NULL,
+    [total_net_currency]       VARCHAR (8000) NULL,
+    [note_text]                VARCHAR (8000) NULL,
+    [note_time]                DATETIME2 (0)  NULL,
+    [is_latest]                INT            NOT NULL,
+    [version_rank]             BIGINT         NULL,
+    [meta_lastupdated]         DATETIME2 (0)  NULL,
+    [meta_source]              VARCHAR (8000) NULL,
+    [meta_versionid]           VARCHAR (8000) NULL,
+    [resource_type]            VARCHAR (8000) NULL,
+    [search_mode]              VARCHAR (8000) NULL,
+    [full_url]                 VARCHAR (8000) NULL,
+    [silver_loaded_at]         DATETIME2 (0)  NULL
+);
+
+
+GO

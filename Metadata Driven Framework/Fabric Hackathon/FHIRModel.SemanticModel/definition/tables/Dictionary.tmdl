@@ -1,0 +1,57 @@
+table Dictionary
+	lineageTag: 1d1d1c39-2502-4034-a275-cab87c4297b4
+	sourceLineageTag: [MetaData].[Dictionary]
+
+	column SchemaName
+		dataType: string
+		lineageTag: 9456931d-cea2-40ac-aa8b-ec93e4bd2fea
+		sourceLineageTag: SchemaName
+		summarizeBy: none
+		sourceColumn: SchemaName
+
+		annotation SummarizationSetBy = Automatic
+
+	column TableName
+		dataType: string
+		lineageTag: 01ef44e2-2bd8-40e4-a05d-743c25009466
+		sourceLineageTag: TableName
+		summarizeBy: none
+		sourceColumn: TableName
+
+		annotation SummarizationSetBy = Automatic
+
+	column ColumnName
+		dataType: string
+		lineageTag: 16413ccc-963f-4bf8-af82-4b4caab44006
+		sourceLineageTag: ColumnName
+		summarizeBy: none
+		sourceColumn: ColumnName
+
+		annotation SummarizationSetBy = Automatic
+
+	column Description
+		dataType: string
+		lineageTag: 6381ce30-b5a1-414e-9b20-571c3613f6f3
+		sourceLineageTag: Description
+		summarizeBy: none
+		sourceColumn: Description
+
+		annotation SummarizationSetBy = Automatic
+
+	column UpdateTs
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: bffbb732-8082-4df1-af53-679bc550b2d4
+		sourceLineageTag: UpdateTs
+		summarizeBy: none
+		sourceColumn: UpdateTs
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Dictionary = entity
+		mode: directLake
+		source
+			entityName: Dictionary
+			schemaName: MetaData
+			expressionSource: 'DirectLake - HackathonWH'
+

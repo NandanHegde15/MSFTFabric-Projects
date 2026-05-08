@@ -1,0 +1,6 @@
+CREATE USER [hemanth.kotha@synapx.com]
+    WITH SID = 0xDB5EBC1E35808C42B5E76098C609E8B4, TYPE = E;
+
+
+GO
+

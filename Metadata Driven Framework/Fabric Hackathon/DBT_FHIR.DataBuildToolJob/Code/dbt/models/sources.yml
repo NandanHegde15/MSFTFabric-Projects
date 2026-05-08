@@ -1,0 +1,22 @@
+version: 2
+
+sources:
+  - name: Silver
+    description: >
+      Raw FHIR data landed from the API ingestion pipeline into the
+      Silver layer. All columns are varchar / float / bit
+      mirroring the flattened FHIR JSON structure.
+    schema: Silver
+
+    tables:
+      - name: dim_patient
+      - name: dim_coverage
+      - name: dim_organization
+      - name: fact_claim_care_team
+      - name: fact_claim_diagnosis
+      - name: fact_claim_item
+      - name: fact_claim_procedure
+      - name: fact_claim
+      - name: fact_invoice_line_item
+      - name: fact_invoice
+      - name: last_wrkday_mth

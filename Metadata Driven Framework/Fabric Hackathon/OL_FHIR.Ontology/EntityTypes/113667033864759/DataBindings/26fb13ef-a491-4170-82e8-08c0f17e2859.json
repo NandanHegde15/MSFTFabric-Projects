@@ -1,0 +1,160 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/ontology/dataBinding/1.0.0/schema.json",
+  "id": "26fb13ef-a491-4170-82e8-08c0f17e2859",
+  "dataBindingConfiguration": {
+    "dataBindingType": "NonTimeSeries",
+    "propertyBindings": [
+      {
+        "sourceColumnName": "patient_id",
+        "targetPropertyId": "5846356552789241037"
+      },
+      {
+        "sourceColumnName": "full_name",
+        "targetPropertyId": "5846356493801130710"
+      },
+      {
+        "sourceColumnName": "name_family",
+        "targetPropertyId": "5846356458555508436"
+      },
+      {
+        "sourceColumnName": "name_given",
+        "targetPropertyId": "5846356440084659493"
+      },
+      {
+        "sourceColumnName": "gender",
+        "targetPropertyId": "5846356411655585958"
+      },
+      {
+        "sourceColumnName": "birth_date",
+        "targetPropertyId": "5846356387804049401"
+      },
+      {
+        "sourceColumnName": "age_years",
+        "targetPropertyId": "5846356361785285136"
+      },
+      {
+        "sourceColumnName": "address_line",
+        "targetPropertyId": "5846356331914257688"
+      },
+      {
+        "sourceColumnName": "address_city",
+        "targetPropertyId": "5846356299017134607"
+      },
+      {
+        "sourceColumnName": "address_state",
+        "targetPropertyId": "5846356262763928204"
+      },
+      {
+        "sourceColumnName": "address_postalcode",
+        "targetPropertyId": "5846356229192888363"
+      },
+      {
+        "sourceColumnName": "phone_or_email",
+        "targetPropertyId": "5846356203332398031"
+      },
+      {
+        "sourceColumnName": "coverage_id",
+        "targetPropertyId": "5846356181789086904"
+      },
+      {
+        "sourceColumnName": "coverage_type",
+        "targetPropertyId": "5846356156019441791"
+      },
+      {
+        "sourceColumnName": "coverage_class",
+        "targetPropertyId": "5846356129146178454"
+      },
+      {
+        "sourceColumnName": "insurance_network",
+        "targetPropertyId": "5846356108161165312"
+      },
+      {
+        "sourceColumnName": "coverage_start",
+        "targetPropertyId": "5846356082984938251"
+      },
+      {
+        "sourceColumnName": "coverage_end",
+        "targetPropertyId": "5846356059708933021"
+      },
+      {
+        "sourceColumnName": "member_relationship",
+        "targetPropertyId": "5846356028746057557"
+      },
+      {
+        "sourceColumnName": "subscriber_member_id",
+        "targetPropertyId": "5846355999046778894"
+      },
+      {
+        "sourceColumnName": "payor_display",
+        "targetPropertyId": "5846355969090586094"
+      },
+      {
+        "sourceColumnName": "payor_org_name",
+        "targetPropertyId": "5846355938468893472"
+      },
+      {
+        "sourceColumnName": "total_claims",
+        "targetPropertyId": "5846355907780363173"
+      },
+      {
+        "sourceColumnName": "total_claimed_amount",
+        "targetPropertyId": "5846355878327057534"
+      },
+      {
+        "sourceColumnName": "first_claim_date",
+        "targetPropertyId": "5846355852636467096"
+      },
+      {
+        "sourceColumnName": "last_claim_date",
+        "targetPropertyId": "5846355830143381974"
+      },
+      {
+        "sourceColumnName": "active_claims",
+        "targetPropertyId": "5846355807184071479"
+      },
+      {
+        "sourceColumnName": "cancelled_claims",
+        "targetPropertyId": "5846355779165532402"
+      },
+      {
+        "sourceColumnName": "total_invoices",
+        "targetPropertyId": "5846355758229277127"
+      },
+      {
+        "sourceColumnName": "total_gross_billed",
+        "targetPropertyId": "5846355739917725370"
+      },
+      {
+        "sourceColumnName": "total_net_billed",
+        "targetPropertyId": "5846355715352796116"
+      },
+      {
+        "sourceColumnName": "total_discounts",
+        "targetPropertyId": "5846355691968694852"
+      },
+      {
+        "sourceColumnName": "last_invoice_date",
+        "targetPropertyId": "5846355664095970481"
+      },
+      {
+        "sourceColumnName": "net_to_gross_pct",
+        "targetPropertyId": "5846355641271409525"
+      },
+      {
+        "sourceColumnName": "patient_last_updated",
+        "targetPropertyId": "5846355617907479461"
+      },
+      {
+        "sourceColumnName": "gold_loaded_at",
+        "targetPropertyId": "5846355597715927245"
+      }
+    ],
+    "sourceTableProperties": {
+      "sourceType": "LakehouseTable",
+      "workspaceId": "d2776184-f5ee-462d-8cf2-0da38898f998",
+      "itemId": "54d31e4b-587a-4cb3-8c6c-23ebb15fca6d",
+      "sourceTableName": "Patient360",
+      "sourceSchema": "Gold"
+    }
+  }
+}

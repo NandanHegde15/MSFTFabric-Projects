@@ -1,0 +1,44 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/dataAgent/definition/dataSource/1.0.0/schema.json",
+  "artifactId": "8a6cdf38-a1ac-9c3e-4657-8251f16cbdea",
+  "workspaceId": "00000000-0000-0000-0000-000000000000",
+  "dataSourceInstructions": null,
+  "displayName": "OL_FHIR",
+  "type": "ontology",
+  "userDescription": null,
+  "metadata": {},
+  "elements": [
+    {
+      "id": "Patient360",
+      "is_selected": true,
+      "display_name": "Patient360",
+      "type": "ontology.entity",
+      "description": "patient_id,full_name,name_family,name_given,gender,birth_date,age_years,address_line,address_city,address_state,address_postalcode,phone_or_email,coverage_id,coverage_type,coverage_class,insurance_network,coverage_start,coverage_end,member_relationship,subscriber_member_id,payor_display,payor_org_name,total_claims,total_claimed_amount,first_claim_date,last_claim_date,active_claims,cancelled_claims,total_invoices,total_gross_billed,total_net_billed,total_discounts,last_invoice_date,net_to_gross_pct,patient_last_updated,gold_loaded_at",
+      "children": []
+    },
+    {
+      "id": "InvoiceReconciliation",
+      "is_selected": true,
+      "display_name": "InvoiceReconciliation",
+      "type": "ontology.entity",
+      "description": "invoice_sk,invoice_id,invoice_status,invoice_date,claim_id,claim_type,claim_status,service_start_date,service_end_date,claimed_amount,currency,patient_id,patient_name,patient_gender,address_city,address_state,issuer_display,issuer_identifier_value,issuer_org_name,total_gross_amount,total_gross_currency,total_net_amount,total_net_currency,base_charge,tax_amount,discount_amount,deduction_amount,surcharge_amount,informational_amount,invoice_line_count,gross_variance,net_variance,net_to_claimed_pct,note_text,invoice_last_updated,gold_loaded_at",
+      "children": []
+    },
+    {
+      "id": "ClaimSummary",
+      "is_selected": true,
+      "display_name": "ClaimSummary",
+      "type": "ontology.entity",
+      "description": "claim_sk,claim_id,claim_status,claim_use,claim_type,claim_subtype,claim_priority,patient_id,patient_name,patient_gender,patient_dob,patient_city,patient_state,provider_id,provider_name,insurer_org_id,insurer_name,insurer_city,facility_id,facility_name,coverage_id,coverage_type,insurance_network,plan_class,payor_display,claim_created_date,service_start_date,service_end_date,service_days,claimed_total,total_currency,items_net_total,line_item_count,total_units_claimed,distinct_services,diagnosis_count,procedure_count,care_team_size,version_rank,claim_last_updated,gold_loaded_at",
+      "children": []
+    },
+    {
+      "id": "FinancialSummaryByOrg",
+      "is_selected": true,
+      "display_name": "FinancialSummaryByOrg",
+      "type": "ontology.entity",
+      "description": "report_month,claim_year,claim_month,claim_use,claim_type,insurer_org_id,insurer_name,insurer_type,insurer_state,facility_id,facility_name,facility_city,facility_state,patient_state,total_claims,unique_patients,total_invoices,total_line_items,total_units_claimed,active_claims,cancelled_claims,errored_claims,total_claimed_amount,total_items_net,total_invoiced_gross,total_invoiced_net,total_discounts_given,collection_rate_pct,avg_claim_amount,avg_invoice_net,gold_loaded_at",
+      "children": []
+    }
+  ]
+}

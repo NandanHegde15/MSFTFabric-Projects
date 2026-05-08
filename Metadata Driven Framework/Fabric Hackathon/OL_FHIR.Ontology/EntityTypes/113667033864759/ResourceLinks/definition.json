@@ -1,0 +1,10 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/ontology/resourceLinks/1.0.0/schema.json",
+  "resourceLinks": [
+    {
+      "type": "PowerBIReport",
+      "workspaceId": "d2776184-f5ee-462d-8cf2-0da38898f998",
+      "itemId": "eb096d4a-6e75-44c5-9217-3d0d3f1f203a"
+    }
+  ]
+}

@@ -1,0 +1,36 @@
+CREATE TABLE [Gold].[FinancialSummaryByOrg] (
+    [report_month]          DATE           NULL,
+    [claim_year]            INT            NULL,
+    [claim_month]           INT            NULL,
+    [claim_use]             VARCHAR (8000) NULL,
+    [claim_type]            VARCHAR (8000) NULL,
+    [insurer_org_id]        VARCHAR (8000) NULL,
+    [insurer_name]          VARCHAR (8000) NULL,
+    [insurer_type]          VARCHAR (8000) NULL,
+    [insurer_state]         VARCHAR (8000) NULL,
+    [facility_id]           VARCHAR (8000) NULL,
+    [facility_name]         VARCHAR (8000) NULL,
+    [facility_city]         VARCHAR (8000) NULL,
+    [facility_state]        VARCHAR (8000) NULL,
+    [patient_state]         VARCHAR (8000) NULL,
+    [total_claims]          INT            NULL,
+    [unique_patients]       INT            NULL,
+    [total_invoices]        INT            NULL,
+    [total_line_items]      INT            NULL,
+    [total_units_claimed]   FLOAT (53)     NULL,
+    [active_claims]         INT            NULL,
+    [cancelled_claims]      INT            NULL,
+    [errored_claims]        INT            NULL,
+    [total_claimed_amount]  FLOAT (53)     NULL,
+    [total_items_net]       FLOAT (53)     NULL,
+    [total_invoiced_gross]  FLOAT (53)     NULL,
+    [total_invoiced_net]    FLOAT (53)     NULL,
+    [total_discounts_given] FLOAT (53)     NULL,
+    [collection_rate_pct]   FLOAT (53)     NULL,
+    [avg_claim_amount]      FLOAT (53)     NULL,
+    [avg_invoice_net]       FLOAT (53)     NULL,
+    [gold_loaded_at]        DATETIME2 (0)  NULL
+);
+
+
+GO

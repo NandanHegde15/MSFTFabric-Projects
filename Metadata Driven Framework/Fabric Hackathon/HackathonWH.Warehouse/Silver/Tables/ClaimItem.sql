@@ -1,0 +1,38 @@
+CREATE TABLE [Silver].[ClaimItem] (
+    [claim_item_sk]           VARCHAR (64)   NULL,
+    [claim_id]                VARCHAR (8000) NULL,
+    [item_sequence]           BIGINT         NULL,
+    [care_team_sequence]      BIGINT         NULL,
+    [diagnosis_sequence]      BIGINT         NULL,
+    [procedure_sequence]      BIGINT         NULL,
+    [information_sequence]    BIGINT         NULL,
+    [product_service_code]    VARCHAR (8000) NULL,
+    [product_service_display] VARCHAR (8000) NULL,
+    [product_service_system]  VARCHAR (8000) NULL,
+    [product_service_text]    VARCHAR (8000) NULL,
+    [category_code]           VARCHAR (8000) NULL,
+    [category_display]        VARCHAR (8000) NULL,
+    [revenue_code]            VARCHAR (8000) NULL,
+    [revenue_code_system]     VARCHAR (8000) NULL,
+    [modifier_code]           VARCHAR (8000) NULL,
+    [modifier_system]         VARCHAR (8000) NULL,
+    [location_code]           VARCHAR (8000) NULL,
+    [location_display]        VARCHAR (8000) NULL,
+    [location_ref_display]    VARCHAR (8000) NULL,
+    [location_ref_identifier] VARCHAR (8000) NULL,
+    [encounter_id]            VARCHAR (8000) NULL,
+    [serviced_date]           DATETIME2 (0)  NULL,
+    [serviced_period_start]   DATETIME2 (0)  NULL,
+    [serviced_period_end]     DATETIME2 (0)  NULL,
+    [quantity]                FLOAT (53)     NULL,
+    [quantity_unit]           VARCHAR (8000) NULL,
+    [unit_price]              FLOAT (53)     NULL,
+    [unit_price_currency]     VARCHAR (8000) NULL,
+    [net_amount]              FLOAT (53)     NULL,
+    [net_currency]            VARCHAR (8000) NULL,
+    [meta_lastupdated]        DATETIME2 (0)  NULL,
+    [silver_loaded_at]        DATETIME2 (0)  NULL
+);
+
+
+GO

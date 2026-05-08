@@ -1,0 +1,80 @@
+table Date
+	lineageTag: 6ddb71dd-0188-4778-8d78-efd6420d7f7e
+	sourceLineageTag: [dbo].[Date]
+
+	column Date
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 0a072b40-87f3-4435-9813-d640d410c82d
+		sourceLineageTag: Date
+		summarizeBy: none
+		sourceColumn: Date
+
+		annotation SummarizationSetBy = Automatic
+
+	column MonthNumber
+		dataType: int64
+		formatString: 0
+		lineageTag: 2644355c-59a8-426d-a8b8-328ad52d5dcb
+		sourceLineageTag: MonthNumber
+		summarizeBy: none
+		sourceColumn: MonthNumber
+
+		annotation SummarizationSetBy = Automatic
+
+	column YearNumber
+		dataType: int64
+		formatString: 0
+		lineageTag: 21bda95d-6513-4c40-be34-8670b59f7d63
+		sourceLineageTag: YearNumber
+		summarizeBy: none
+		sourceColumn: YearNumber
+
+		annotation SummarizationSetBy = Automatic
+
+	column IsWeekend
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: 275854fa-b7de-40ef-bef3-cb1456461023
+		sourceLineageTag: IsWeekend
+		summarizeBy: none
+		sourceColumn: IsWeekend
+
+		annotation SummarizationSetBy = Automatic
+
+	column DayValue
+		dataType: int64
+		formatString: 0
+		lineageTag: 6d0f648f-2457-4b93-bf7d-ef6df75c1f65
+		sourceLineageTag: DayValue
+		summarizeBy: none
+		sourceColumn: DayValue
+
+		annotation SummarizationSetBy = Automatic
+
+	column DayName
+		dataType: string
+		lineageTag: c42e1778-5b35-4a54-84ce-0e931efb7440
+		sourceLineageTag: DayName
+		summarizeBy: none
+		sourceColumn: DayName
+
+		annotation SummarizationSetBy = Automatic
+
+	column MonthEndDate
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 74d86de5-6552-4e5e-986a-cc928a8c9abf
+		sourceLineageTag: MonthEndDate
+		summarizeBy: none
+		sourceColumn: MonthEndDate
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Date = entity
+		mode: directLake
+		source
+			entityName: Date
+			schemaName: dbo
+			expressionSource: 'DirectLake - HackathonWH'
+

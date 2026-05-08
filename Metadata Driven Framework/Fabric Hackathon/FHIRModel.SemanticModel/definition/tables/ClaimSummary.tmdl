@@ -1,0 +1,398 @@
+table ClaimSummary
+	lineageTag: 51b13411-780e-4ffe-a5e2-438696bde122
+	sourceLineageTag: [Gold].[ClaimSummary]
+
+	column claim_sk
+		dataType: string
+		lineageTag: 1e081529-d76b-41da-ba5f-f9c299e873b4
+		sourceLineageTag: claim_sk
+		summarizeBy: none
+		sourceColumn: claim_sk
+
+		annotation SummarizationSetBy = Automatic
+
+	column claim_id
+		dataType: string
+		lineageTag: 18bccd3e-2c39-4d31-b436-0b9f7ed28ca4
+		sourceLineageTag: claim_id
+		summarizeBy: none
+		sourceColumn: claim_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column claim_status
+		dataType: string
+		lineageTag: fcdc7907-4870-45ed-a04f-d2710a284eae
+		sourceLineageTag: claim_status
+		summarizeBy: none
+		sourceColumn: claim_status
+
+		annotation SummarizationSetBy = Automatic
+
+	column claim_use
+		dataType: string
+		lineageTag: fb887f35-1040-43dc-858f-9bf62b6e1dda
+		sourceLineageTag: claim_use
+		summarizeBy: none
+		sourceColumn: claim_use
+
+		annotation SummarizationSetBy = Automatic
+
+	column claim_type
+		dataType: string
+		lineageTag: a2e088ed-1987-454a-8965-bafbe5f0e053
+		sourceLineageTag: claim_type
+		summarizeBy: none
+		sourceColumn: claim_type
+
+		annotation SummarizationSetBy = Automatic
+
+	column claim_subtype
+		dataType: string
+		lineageTag: c9e73ddf-e5f5-4d48-805d-5857d8a8c1c0
+		sourceLineageTag: claim_subtype
+		summarizeBy: none
+		sourceColumn: claim_subtype
+
+		annotation SummarizationSetBy = Automatic
+
+	column claim_priority
+		dataType: string
+		lineageTag: 342270a2-a58b-4b3c-9bd0-bde4e90589ca
+		sourceLineageTag: claim_priority
+		summarizeBy: none
+		sourceColumn: claim_priority
+
+		annotation SummarizationSetBy = Automatic
+
+	column patient_id
+		dataType: string
+		lineageTag: c59b0b60-107c-4f93-9f5e-cd1e5452b95b
+		sourceLineageTag: patient_id
+		summarizeBy: none
+		sourceColumn: patient_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column patient_name
+		dataType: string
+		lineageTag: 6566272e-20b0-43e8-aedf-d23dcc124a5e
+		sourceLineageTag: patient_name
+		summarizeBy: none
+		sourceColumn: patient_name
+
+		annotation SummarizationSetBy = Automatic
+
+	column patient_gender
+		dataType: string
+		lineageTag: 285dd88b-f500-4e05-b384-d3f9f5d943e6
+		sourceLineageTag: patient_gender
+		summarizeBy: none
+		sourceColumn: patient_gender
+
+		annotation SummarizationSetBy = Automatic
+
+	column patient_dob
+		dataType: string
+		lineageTag: 7e425796-0ec0-49be-bf44-7bf786f8ee05
+		sourceLineageTag: patient_dob
+		summarizeBy: none
+		sourceColumn: patient_dob
+
+		annotation SummarizationSetBy = Automatic
+
+	column patient_city
+		dataType: string
+		lineageTag: c848d65e-915f-41ba-ba5f-c4bba2dd4c8f
+		sourceLineageTag: patient_city
+		summarizeBy: none
+		sourceColumn: patient_city
+
+		annotation SummarizationSetBy = Automatic
+
+	column patient_state
+		dataType: string
+		lineageTag: fac3beb6-4a1b-4597-a09e-6b34514f9037
+		sourceLineageTag: patient_state
+		summarizeBy: none
+		sourceColumn: patient_state
+
+		annotation SummarizationSetBy = Automatic
+
+	column provider_id
+		dataType: string
+		lineageTag: e989717f-963e-4043-aaac-5dc9f66f504a
+		sourceLineageTag: provider_id
+		summarizeBy: none
+		sourceColumn: provider_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column provider_name
+		dataType: string
+		lineageTag: fb9df158-081a-41e4-8909-edd55dbec38d
+		sourceLineageTag: provider_name
+		summarizeBy: none
+		sourceColumn: provider_name
+
+		annotation SummarizationSetBy = Automatic
+
+	column insurer_org_id
+		dataType: string
+		lineageTag: b7d64b0c-f3ee-4d17-91b2-959c0e4a5734
+		sourceLineageTag: insurer_org_id
+		summarizeBy: none
+		sourceColumn: insurer_org_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column insurer_name
+		dataType: string
+		lineageTag: 577b008f-40cf-4588-83a4-8f0444b779e5
+		sourceLineageTag: insurer_name
+		summarizeBy: none
+		sourceColumn: insurer_name
+
+		annotation SummarizationSetBy = Automatic
+
+	column insurer_city
+		dataType: string
+		lineageTag: d42dde10-d7aa-4ad4-8ef1-f285b64d1f5d
+		sourceLineageTag: insurer_city
+		summarizeBy: none
+		sourceColumn: insurer_city
+
+		annotation SummarizationSetBy = Automatic
+
+	column facility_id
+		dataType: string
+		lineageTag: 9244b713-91f5-4012-8f2a-673778b51962
+		sourceLineageTag: facility_id
+		summarizeBy: none
+		sourceColumn: facility_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column facility_name
+		dataType: string
+		lineageTag: 05c1c999-fbd8-4d94-8bb8-c2104f477984
+		sourceLineageTag: facility_name
+		summarizeBy: none
+		sourceColumn: facility_name
+
+		annotation SummarizationSetBy = Automatic
+
+	column coverage_id
+		dataType: string
+		lineageTag: 7c2982ef-8dee-468d-ad82-cbc4efce0931
+		sourceLineageTag: coverage_id
+		summarizeBy: none
+		sourceColumn: coverage_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column coverage_type
+		dataType: string
+		lineageTag: 79c9b660-56cf-449c-b25b-4373e8d6b249
+		sourceLineageTag: coverage_type
+		summarizeBy: none
+		sourceColumn: coverage_type
+
+		annotation SummarizationSetBy = Automatic
+
+	column insurance_network
+		dataType: string
+		lineageTag: 793f751d-4000-4b08-9635-a4ecfb1d513e
+		sourceLineageTag: insurance_network
+		summarizeBy: none
+		sourceColumn: insurance_network
+
+		annotation SummarizationSetBy = Automatic
+
+	column plan_class
+		dataType: string
+		lineageTag: d02f07dd-95f0-4676-94a6-b4e174c1c06d
+		sourceLineageTag: plan_class
+		summarizeBy: none
+		sourceColumn: plan_class
+
+		annotation SummarizationSetBy = Automatic
+
+	column payor_display
+		dataType: string
+		lineageTag: 3ec4ec9e-55a0-4ea5-a923-aa3acaff3165
+		sourceLineageTag: payor_display
+		summarizeBy: none
+		sourceColumn: payor_display
+
+		annotation SummarizationSetBy = Automatic
+
+	column claim_created_date
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 1fc570d4-3e68-4316-9130-2c37b858dbac
+		sourceLineageTag: claim_created_date
+		summarizeBy: none
+		sourceColumn: claim_created_date
+
+		annotation SummarizationSetBy = Automatic
+
+	column service_start_date
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 046fd359-35e4-4820-bbde-5baf92d3a38e
+		sourceLineageTag: service_start_date
+		summarizeBy: none
+		sourceColumn: service_start_date
+
+		annotation SummarizationSetBy = Automatic
+
+	column service_end_date
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 7a3aea10-13d0-4bd8-89e1-cfc7f31444d7
+		sourceLineageTag: service_end_date
+		summarizeBy: none
+		sourceColumn: service_end_date
+
+		annotation SummarizationSetBy = Automatic
+
+	column service_days
+		dataType: int64
+		formatString: 0
+		lineageTag: 09199d78-a72b-4c84-8178-681d86336079
+		sourceLineageTag: service_days
+		summarizeBy: sum
+		sourceColumn: service_days
+
+		annotation SummarizationSetBy = Automatic
+
+	column claimed_total
+		dataType: double
+		lineageTag: 29af10e9-ee0f-479e-839b-5fc80c9536c4
+		sourceLineageTag: claimed_total
+		summarizeBy: sum
+		sourceColumn: claimed_total
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column total_currency
+		dataType: string
+		lineageTag: 63878b56-1d05-4401-bd4b-bd8acfe0621c
+		sourceLineageTag: total_currency
+		summarizeBy: none
+		sourceColumn: total_currency
+
+		annotation SummarizationSetBy = Automatic
+
+	column items_net_total
+		dataType: double
+		lineageTag: c34eac3a-1862-4baf-8462-ec48d8a95aab
+		sourceLineageTag: items_net_total
+		summarizeBy: sum
+		sourceColumn: items_net_total
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column line_item_count
+		dataType: int64
+		formatString: 0
+		lineageTag: 57022c14-6c10-44db-bee3-a25cfdbab63e
+		sourceLineageTag: line_item_count
+		summarizeBy: sum
+		sourceColumn: line_item_count
+
+		annotation SummarizationSetBy = Automatic
+
+	column total_units_claimed
+		dataType: double
+		lineageTag: fdd4f0d6-af77-4e46-8a34-76b9ca2f4367
+		sourceLineageTag: total_units_claimed
+		summarizeBy: sum
+		sourceColumn: total_units_claimed
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column distinct_services
+		dataType: int64
+		formatString: 0
+		lineageTag: 2f8b9499-abbb-4210-aca9-50781a3c52c0
+		sourceLineageTag: distinct_services
+		summarizeBy: sum
+		sourceColumn: distinct_services
+
+		annotation SummarizationSetBy = Automatic
+
+	column diagnosis_count
+		dataType: int64
+		formatString: 0
+		lineageTag: 421824b3-ee06-4384-8624-31c1bbb0a434
+		sourceLineageTag: diagnosis_count
+		summarizeBy: sum
+		sourceColumn: diagnosis_count
+
+		annotation SummarizationSetBy = Automatic
+
+	column procedure_count
+		dataType: int64
+		formatString: 0
+		lineageTag: 770bca92-dd36-4d13-a50a-10ec0a4ac6cd
+		sourceLineageTag: procedure_count
+		summarizeBy: sum
+		sourceColumn: procedure_count
+
+		annotation SummarizationSetBy = Automatic
+
+	column care_team_size
+		dataType: int64
+		formatString: 0
+		lineageTag: c6ebc708-17c0-489c-b340-faf3f9770718
+		sourceLineageTag: care_team_size
+		summarizeBy: sum
+		sourceColumn: care_team_size
+
+		annotation SummarizationSetBy = Automatic
+
+	column version_rank
+		dataType: int64
+		formatString: 0
+		lineageTag: f453e551-267a-4e98-948e-bd6c1f454381
+		sourceLineageTag: version_rank
+		summarizeBy: sum
+		sourceColumn: version_rank
+
+		annotation SummarizationSetBy = Automatic
+
+	column claim_last_updated
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 634b4f87-8d72-440f-a7a7-013a17041021
+		sourceLineageTag: claim_last_updated
+		summarizeBy: none
+		sourceColumn: claim_last_updated
+
+		annotation SummarizationSetBy = Automatic
+
+	column gold_loaded_at
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 71612048-06ae-4f09-b95d-f69335ec23a6
+		sourceLineageTag: gold_loaded_at
+		summarizeBy: none
+		sourceColumn: gold_loaded_at
+
+		annotation SummarizationSetBy = Automatic
+
+	partition ClaimSummary = entity
+		mode: directLake
+		source
+			entityName: ClaimSummary
+			schemaName: Gold
+			expressionSource: 'DirectLake - HackathonWH'
+
