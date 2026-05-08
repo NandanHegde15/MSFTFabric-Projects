@@ -1,0 +1,23 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/ontology/contextualization/1.0.0/schema.json",
+  "id": "576e9fb4-7656-4ea2-b05a-bd7606dd347b",
+  "dataBindingTable": {
+    "workspaceId": "00000000-0000-0000-0000-000000000000",
+    "itemId": "2539d5aa-c349-8d61-4771-f39b7df0e8d0",
+    "sourceTableName": "Invoice",
+    "sourceSchema": null,
+    "sourceType": "LakehouseTable"
+  },
+  "sourceKeyRefBindings": [
+    {
+      "sourceColumnName": "entry_resource_id",
+      "targetPropertyId": "5846355332238198070"
+    }
+  ],
+  "targetKeyRefBindings": [
+    {
+      "sourceColumnName": "entry_resource_id",
+      "targetPropertyId": "5846354436128503458"
+    }
+  ]
+}

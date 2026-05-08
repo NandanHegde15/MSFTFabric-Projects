@@ -1,0 +1,160 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/ontology/dataBinding/1.0.0/schema.json",
+  "id": "f17f2184-58d3-4054-8f39-341187b03a72",
+  "dataBindingConfiguration": {
+    "dataBindingType": "NonTimeSeries",
+    "propertyBindings": [
+      {
+        "sourceColumnName": "invoice_sk",
+        "targetPropertyId": "5846355354189486045"
+      },
+      {
+        "sourceColumnName": "invoice_id",
+        "targetPropertyId": "5846355332238198070"
+      },
+      {
+        "sourceColumnName": "invoice_status",
+        "targetPropertyId": "5846355306721639970"
+      },
+      {
+        "sourceColumnName": "invoice_date",
+        "targetPropertyId": "5846355284665385431"
+      },
+      {
+        "sourceColumnName": "claim_id",
+        "targetPropertyId": "5846355262669767140"
+      },
+      {
+        "sourceColumnName": "claim_type",
+        "targetPropertyId": "5846355239238346937"
+      },
+      {
+        "sourceColumnName": "claim_status",
+        "targetPropertyId": "5846355214516922776"
+      },
+      {
+        "sourceColumnName": "service_start_date",
+        "targetPropertyId": "5846355191070775003"
+      },
+      {
+        "sourceColumnName": "service_end_date",
+        "targetPropertyId": "5846355165284089485"
+      },
+      {
+        "sourceColumnName": "claimed_amount",
+        "targetPropertyId": "5846355144136222919"
+      },
+      {
+        "sourceColumnName": "currency",
+        "targetPropertyId": "5846355118427613267"
+      },
+      {
+        "sourceColumnName": "patient_id",
+        "targetPropertyId": "5846355097529030055"
+      },
+      {
+        "sourceColumnName": "patient_name",
+        "targetPropertyId": "5846355077885421776"
+      },
+      {
+        "sourceColumnName": "patient_gender",
+        "targetPropertyId": "5846355053991221821"
+      },
+      {
+        "sourceColumnName": "address_city",
+        "targetPropertyId": "5846355029389943227"
+      },
+      {
+        "sourceColumnName": "address_state",
+        "targetPropertyId": "5846355008370609043"
+      },
+      {
+        "sourceColumnName": "issuer_display",
+        "targetPropertyId": "5846354983093205247"
+      },
+      {
+        "sourceColumnName": "issuer_identifier_value",
+        "targetPropertyId": "5846354961096022941"
+      },
+      {
+        "sourceColumnName": "issuer_org_name",
+        "targetPropertyId": "5846354937172458597"
+      },
+      {
+        "sourceColumnName": "total_gross_amount",
+        "targetPropertyId": "5846354917771030700"
+      },
+      {
+        "sourceColumnName": "total_gross_currency",
+        "targetPropertyId": "5846354890695352901"
+      },
+      {
+        "sourceColumnName": "total_net_amount",
+        "targetPropertyId": "5846354871528485652"
+      },
+      {
+        "sourceColumnName": "total_net_currency",
+        "targetPropertyId": "5846354849906253150"
+      },
+      {
+        "sourceColumnName": "base_charge",
+        "targetPropertyId": "5846354826618261023"
+      },
+      {
+        "sourceColumnName": "tax_amount",
+        "targetPropertyId": "5846354802059339924"
+      },
+      {
+        "sourceColumnName": "discount_amount",
+        "targetPropertyId": "5846354779196705193"
+      },
+      {
+        "sourceColumnName": "deduction_amount",
+        "targetPropertyId": "5846354759624888617"
+      },
+      {
+        "sourceColumnName": "surcharge_amount",
+        "targetPropertyId": "5846354738577615588"
+      },
+      {
+        "sourceColumnName": "informational_amount",
+        "targetPropertyId": "5846354716405215623"
+      },
+      {
+        "sourceColumnName": "invoice_line_count",
+        "targetPropertyId": "5846354688670665827"
+      },
+      {
+        "sourceColumnName": "gross_variance",
+        "targetPropertyId": "5846354667617369221"
+      },
+      {
+        "sourceColumnName": "net_variance",
+        "targetPropertyId": "5846354646593829942"
+      },
+      {
+        "sourceColumnName": "net_to_claimed_pct",
+        "targetPropertyId": "5846354621315076165"
+      },
+      {
+        "sourceColumnName": "note_text",
+        "targetPropertyId": "5846354599331173640"
+      },
+      {
+        "sourceColumnName": "invoice_last_updated",
+        "targetPropertyId": "5846354579172360213"
+      },
+      {
+        "sourceColumnName": "gold_loaded_at",
+        "targetPropertyId": "5846354556379376608"
+      }
+    ],
+    "sourceTableProperties": {
+      "sourceType": "LakehouseTable",
+      "workspaceId": "d2776184-f5ee-462d-8cf2-0da38898f998",
+      "itemId": "54d31e4b-587a-4cb3-8c6c-23ebb15fca6d",
+      "sourceTableName": "InvoiceReconciliation",
+      "sourceSchema": "Gold"
+    }
+  }
+}

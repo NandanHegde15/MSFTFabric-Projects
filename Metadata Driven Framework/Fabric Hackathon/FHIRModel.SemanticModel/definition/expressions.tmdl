@@ -1,0 +1,11 @@
+expression 'DirectLake - HackathonWH' =
+		let
+		    Source = AzureStorage.DataLake("https://onelake.dfs.fabric.microsoft.com/d2776184-f5ee-462d-8cf2-0da38898f998/54d31e4b-587a-4cb3-8c6c-23ebb15fca6d", [HierarchicalNavigation=true])
+		in
+		    Source
+	lineageTag: 7d14f338-a8d8-4378-8526-faccd3b9053f
+
+	annotation PBI_IncludeFutureArtifacts = False
+
+	annotation PBI_RemovedChildren = [{"remoteItemId":{"analysisServicesObject":{"sourceName":null,"sourceLineageTag":"[Silver].[ClaimItem]"}},"objectType":"Table"},{"remoteItemId":{"analysisServicesObject":{"sourceName":null,"sourceLineageTag":"[Silver].[ClaimDiagnosis]"}},"objectType":"Table"},{"remoteItemId":{"analysisServicesObject":{"sourceName":null,"sourceLineageTag":"[Silver].[Claim]"}},"objectType":"Table"},{"remoteItemId":{"analysisServicesObject":{"sourceName":null,"sourceLineageTag":"[Silver].[ClaimCareTeam]"}},"objectType":"Table"},{"remoteItemId":{"analysisServicesObject":{"sourceName":null,"sourceLineageTag":"[Silver].[ClaimProcedure]"}},"objectType":"Table"},{"remoteItemId":{"analysisServicesObject":{"sourceName":null,"sourceLineageTag":"[Silver].[Coverage]"}},"objectType":"Table"},{"remoteItemId":{"analysisServicesObject":{"sourceName":null,"sourceLineageTag":"[Silver].[Invoice]"}},"objectType":"Table"},{"remoteItemId":{"analysisServicesObject":{"sourceName":null,"sourceLineageTag":"[Silver].[InvoiceLineItem]"}},"objectType":"Table"},{"remoteItemId":{"analysisServicesObject":{"sourceName":null,"sourceLineageTag":"[Silver].[Organization]"}},"objectType":"Table"},{"remoteItemId":{"analysisServicesObject":{"sourceName":null,"sourceLineageTag":"[Silver].[Patient]"}},"objectType":"Table"}]
+

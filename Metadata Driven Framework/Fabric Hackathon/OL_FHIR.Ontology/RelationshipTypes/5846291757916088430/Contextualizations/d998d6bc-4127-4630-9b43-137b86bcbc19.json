@@ -1,0 +1,23 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/ontology/contextualization/1.0.0/schema.json",
+  "id": "d998d6bc-4127-4630-9b43-137b86bcbc19",
+  "dataBindingTable": {
+    "workspaceId": "d2776184-f5ee-462d-8cf2-0da38898f998",
+    "itemId": "54d31e4b-587a-4cb3-8c6c-23ebb15fca6d",
+    "sourceTableName": "ClaimSummary",
+    "sourceSchema": "Gold",
+    "sourceType": "LakehouseTable"
+  },
+  "sourceKeyRefBindings": [
+    {
+      "sourceColumnName": "claim_id",
+      "targetPropertyId": "5846354436128503458"
+    }
+  ],
+  "targetKeyRefBindings": [
+    {
+      "sourceColumnName": "patient_id",
+      "targetPropertyId": "5846356552789241037"
+    }
+  ]
+}

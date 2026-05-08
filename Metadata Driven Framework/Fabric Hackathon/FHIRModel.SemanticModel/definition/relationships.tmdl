@@ -1,0 +1,12 @@
+relationship 3f99e829-86d4-9afc-618c-531af36b7149
+	fromColumn: ClaimSummary.patient_id
+	toColumn: Patient360.patient_id
+
+relationship fb66f7fe-d782-38c0-8727-d295c4112399
+	fromColumn: InvoiceReconciliation.claim_id
+	toColumn: ClaimSummary.claim_id
+
+relationship 48b00fbc-2a42-a46d-40f4-0fe0b79cca9c
+	fromColumn: ClaimSummary.service_start_date
+	toColumn: Date.Date
+

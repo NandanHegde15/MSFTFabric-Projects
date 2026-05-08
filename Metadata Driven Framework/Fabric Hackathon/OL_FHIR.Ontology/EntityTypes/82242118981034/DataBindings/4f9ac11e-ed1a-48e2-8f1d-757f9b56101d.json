@@ -1,0 +1,180 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/ontology/dataBinding/1.0.0/schema.json",
+  "id": "4f9ac11e-ed1a-48e2-8f1d-757f9b56101d",
+  "dataBindingConfiguration": {
+    "dataBindingType": "NonTimeSeries",
+    "propertyBindings": [
+      {
+        "sourceColumnName": "claim_sk",
+        "targetPropertyId": "5846354462982276627"
+      },
+      {
+        "sourceColumnName": "claim_id",
+        "targetPropertyId": "5846354436128503458"
+      },
+      {
+        "sourceColumnName": "claim_status",
+        "targetPropertyId": "5846354416602422119"
+      },
+      {
+        "sourceColumnName": "claim_use",
+        "targetPropertyId": "5846354390090587558"
+      },
+      {
+        "sourceColumnName": "claim_type",
+        "targetPropertyId": "5846354364004933236"
+      },
+      {
+        "sourceColumnName": "claim_subtype",
+        "targetPropertyId": "5846354337497108225"
+      },
+      {
+        "sourceColumnName": "claim_priority",
+        "targetPropertyId": "5846354315716057913"
+      },
+      {
+        "sourceColumnName": "patient_id",
+        "targetPropertyId": "5846354293880565845"
+      },
+      {
+        "sourceColumnName": "patient_name",
+        "targetPropertyId": "5846354273193541686"
+      },
+      {
+        "sourceColumnName": "patient_gender",
+        "targetPropertyId": "5846354248099554774"
+      },
+      {
+        "sourceColumnName": "patient_dob",
+        "targetPropertyId": "5846354225495248388"
+      },
+      {
+        "sourceColumnName": "patient_city",
+        "targetPropertyId": "5846354205872345433"
+      },
+      {
+        "sourceColumnName": "patient_state",
+        "targetPropertyId": "5846354180477263012"
+      },
+      {
+        "sourceColumnName": "provider_id",
+        "targetPropertyId": "5846354158439290138"
+      },
+      {
+        "sourceColumnName": "provider_name",
+        "targetPropertyId": "5846354134088036613"
+      },
+      {
+        "sourceColumnName": "insurer_org_id",
+        "targetPropertyId": "5846354116057773281"
+      },
+      {
+        "sourceColumnName": "insurer_name",
+        "targetPropertyId": "5846354094884779059"
+      },
+      {
+        "sourceColumnName": "insurer_city",
+        "targetPropertyId": "5846354069097893068"
+      },
+      {
+        "sourceColumnName": "facility_id",
+        "targetPropertyId": "5846354044685290462"
+      },
+      {
+        "sourceColumnName": "facility_name",
+        "targetPropertyId": "5846354022703023598"
+      },
+      {
+        "sourceColumnName": "coverage_id",
+        "targetPropertyId": "5846354003298973891"
+      },
+      {
+        "sourceColumnName": "coverage_type",
+        "targetPropertyId": "5846353976354089909"
+      },
+      {
+        "sourceColumnName": "insurance_network",
+        "targetPropertyId": "5846353957632595228"
+      },
+      {
+        "sourceColumnName": "plan_class",
+        "targetPropertyId": "5846353935324814805"
+      },
+      {
+        "sourceColumnName": "payor_display",
+        "targetPropertyId": "5846353910828951216"
+      },
+      {
+        "sourceColumnName": "claim_created_date",
+        "targetPropertyId": "5846353888276921680"
+      },
+      {
+        "sourceColumnName": "service_start_date",
+        "targetPropertyId": "5846353866606348291"
+      },
+      {
+        "sourceColumnName": "service_end_date",
+        "targetPropertyId": "5846353842991314662"
+      },
+      {
+        "sourceColumnName": "service_days",
+        "targetPropertyId": "5846353822403664343"
+      },
+      {
+        "sourceColumnName": "claimed_total",
+        "targetPropertyId": "5846353795898600201"
+      },
+      {
+        "sourceColumnName": "total_currency",
+        "targetPropertyId": "5846353777150787524"
+      },
+      {
+        "sourceColumnName": "items_net_total",
+        "targetPropertyId": "5846353755527118519"
+      },
+      {
+        "sourceColumnName": "line_item_count",
+        "targetPropertyId": "5846353730972286338"
+      },
+      {
+        "sourceColumnName": "total_units_claimed",
+        "targetPropertyId": "5846353708422627290"
+      },
+      {
+        "sourceColumnName": "distinct_services",
+        "targetPropertyId": "5846353684963824558"
+      },
+      {
+        "sourceColumnName": "diagnosis_count",
+        "targetPropertyId": "5846353657843500310"
+      },
+      {
+        "sourceColumnName": "procedure_count",
+        "targetPropertyId": "5846353636538407600"
+      },
+      {
+        "sourceColumnName": "care_team_size",
+        "targetPropertyId": "5846353617657077836"
+      },
+      {
+        "sourceColumnName": "version_rank",
+        "targetPropertyId": "5846353593780882445"
+      },
+      {
+        "sourceColumnName": "claim_last_updated",
+        "targetPropertyId": "5846353566860302587"
+      },
+      {
+        "sourceColumnName": "gold_loaded_at",
+        "targetPropertyId": "5846353547207520033"
+      }
+    ],
+    "sourceTableProperties": {
+      "sourceType": "LakehouseTable",
+      "workspaceId": "d2776184-f5ee-462d-8cf2-0da38898f998",
+      "itemId": "54d31e4b-587a-4cb3-8c6c-23ebb15fca6d",
+      "sourceTableName": "ClaimSummary",
+      "sourceSchema": "Gold"
+    }
+  }
+}

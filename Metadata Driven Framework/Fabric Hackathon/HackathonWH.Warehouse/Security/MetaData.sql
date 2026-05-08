@@ -1,0 +1,5 @@
+CREATE SCHEMA [MetaData]
+    AUTHORIZATION [dbo];
+
+
+GO

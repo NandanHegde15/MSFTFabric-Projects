@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "DataAgent",
+    "displayName": "IQDA_Hackathon"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "1ae8225b-64d9-b5cf-4939-4da84788b914"
+  }
+}

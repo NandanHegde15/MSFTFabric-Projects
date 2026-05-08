@@ -1,0 +1,125 @@
+version: 2
+
+models:
+
+  # ──────────────────────────────────────────────────────────────────────────
+  # gold_patient_360  
+  # ──────────────────────────────────────────────────────────────────────────
+  - name: Patient360
+    description: >
+      One row per current patient enriched with latest coverage, payor org
+      name, claim counts and invoice payment summary.  Primary table for
+      Patient 360 and care-gap analysis dashboards.
+    columns:
+      - name: patient_id
+        description: FHIR Patient.id – unique per row.
+        tests: [not_null, unique]
+      - name: full_name
+        description: Concatenated first + last name.
+      - name: age_years
+        description: Computed age in years from birth_date.
+      - name: total_claims
+        description: Count of latest claim versions for this patient.
+      - name: total_claimed_amount
+        description: Sum of total_amount across all latest claims.
+      - name: total_invoices
+        description: Count of latest invoice versions for this patient.
+      - name: total_gross_billed
+        description: Sum of total_gross_amount across all latest invoices.
+      - name: total_net_billed
+        description: Sum of total_net_amount across all latest invoices.
+      - name: net_to_gross_pct
+        description: net_billed / gross_billed × 100 (collection efficiency).
+
+  # ──────────────────────────────────────────────────────────────────────────
+  # gold_claim_summary
+  # ──────────────────────────────────────────────────────────────────────────
+  - name: ClaimSummary
+    description: >
+      One row per latest claim, fully denormalised with patient, insurer,
+      facility, coverage, diagnosis/procedure counts and line-item totals.
+      Primary table for claim analysis and adjudication reporting.
+    columns:
+      - name: claim_sk
+        tests: [not_null, unique]
+      - name: claim_id
+        tests: [not_null]
+      - name: patient_id
+        tests: [not_null]
+      - name: claimed_total
+        description: Header-level total claimed amount.
+      - name: items_net_total
+        description: Sum of net amounts across all line items.
+      - name: diagnosis_count
+        description: Number of diagnosis codes on this claim.
+      - name: procedure_count
+        description: Number of procedures on this claim.
+      - name: care_team_size
+        description: Distinct number of providers on the care team.
+      - name: service_days
+        description: Number of days between service start and end dates.
+
+  # ──────────────────────────────────────────────────────────────────────────
+  # gold_invoice_reconciliation
+  # ──────────────────────────────────────────────────────────────────────────
+  - name: InvoiceReconciliation
+    description: >
+      One row per latest invoice, joined to its source claim and patient.
+      Price components pivoted to columns. Surfaces gross_variance and
+      net_to_claimed_pct for payment reconciliation and revenue cycle analytics.
+    columns:
+      - name: invoice_sk
+        tests: [not_null, unique]
+      - name: invoice_id
+        tests: [not_null]
+      - name: claim_id
+        description: FK to fact_claim via source_claim_id.
+      - name: gross_variance
+        description: claimed_amount − total_gross_amount. Positive = underbilled.
+      - name: net_variance
+        description: claimed_amount − total_net_amount.
+      - name: net_to_claimed_pct
+        description: total_net_amount / claimed_amount × 100.
+      - name: base_charge
+        description: Sum of price_component_type='base' line amounts.
+      - name: tax_amount
+        description: Sum of price_component_type='tax' line amounts.
+      - name: discount_amount
+        description: Sum of price_component_type='discount' line amounts.
+      - name: deduction_amount
+        description: Sum of price_component_type='deduction' line amounts.
+
+  # ──────────────────────────────────────────────────────────────────────────
+  # gold_financial_summary_by_org
+  # ──────────────────────────────────────────────────────────────────────────
+  - name: FinancialSummaryByOrg
+    description: >
+      Monthly financial KPIs grouped by insurer org, facility, claim type and
+      patient state.  Used for executive dashboards, payer performance tracking
+      and cost-trend analysis.
+    columns:
+      - name: report_month
+        description: First day of the claim calendar month.
+        tests: [not_null]
+      - name: insurer_name
+        description: Name of the insuring organization.
+      - name: facility_name
+        description: Name of the service facility.
+      - name: total_claims
+        description: Count of distinct latest claims in the period.
+      - name: unique_patients
+        description: Count of distinct patients with claims in the period.
+      - name: total_claimed_amount
+        description: Sum of all claimed amounts in the period.
+      - name: total_invoiced_net
+        description: Sum of all net invoice amounts in the period.
+      - name: collection_rate_pct
+        description: total_invoiced_net / total_claimed_amount × 100.
+      - name: avg_claim_amount
+        description: Average claimed amount per claim.
+      - name: avg_invoice_net
+        description: Average net invoice amount per invoice.
+
+  # ------------------------------------------
+
+  - name: LastWorkingDayOfMonth

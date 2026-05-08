@@ -1,0 +1,5 @@
+CREATE SCHEMA [Gold]
+    AUTHORIZATION [dbo];
+
+
+GO

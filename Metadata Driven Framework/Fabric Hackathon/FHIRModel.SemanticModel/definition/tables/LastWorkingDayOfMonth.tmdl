@@ -1,0 +1,41 @@
+table LastWorkingDayOfMonth
+	lineageTag: 70c79147-c2c6-48e7-ad69-a55357aaa36d
+	sourceLineageTag: [Gold].[LastWorkingDayOfMonth]
+
+	column YearNumber
+		dataType: int64
+		formatString: 0
+		lineageTag: 23a555ae-6654-49f9-a365-248d28db72ae
+		sourceLineageTag: YearNumber
+		summarizeBy: sum
+		sourceColumn: YearNumber
+
+		annotation SummarizationSetBy = Automatic
+
+	column MonthNumber
+		dataType: int64
+		formatString: 0
+		lineageTag: 57207435-a738-4a16-b3b9-289da7f627ac
+		sourceLineageTag: MonthNumber
+		summarizeBy: sum
+		sourceColumn: MonthNumber
+
+		annotation SummarizationSetBy = Automatic
+
+	column LastWorkingDay
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 63e0c464-1d5d-4455-aeee-be1a0b194a0d
+		sourceLineageTag: LastWorkingDay
+		summarizeBy: none
+		sourceColumn: LastWorkingDay
+
+		annotation SummarizationSetBy = Automatic
+
+	partition LastWorkingDayOfMonth = entity
+		mode: directLake
+		source
+			entityName: LastWorkingDayOfMonth
+			schemaName: Gold
+			expressionSource: 'DirectLake - HackathonWH'
+

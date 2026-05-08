@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "Ontology",
+    "displayName": "OL_FHIR"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "8a6cdf38-a1ac-9c3e-4657-8251f16cbdea"
+  }
+}

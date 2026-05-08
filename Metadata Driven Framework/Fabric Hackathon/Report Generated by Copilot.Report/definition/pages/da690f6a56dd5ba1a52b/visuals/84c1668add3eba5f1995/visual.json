@@ -1,0 +1,369 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.8.0/schema.json",
+  "name": "84c1668add3eba5f1995",
+  "position": {
+    "x": 645,
+    "y": 456,
+    "z": 1,
+    "height": 224,
+    "width": 595
+  },
+  "visual": {
+    "visualType": "scatterChart",
+    "query": {
+      "queryState": {
+        "Category": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "FinancialSummaryByOrg"
+                    }
+                  },
+                  "Property": "insurer_name"
+                }
+              },
+              "queryRef": "FinancialSummaryByOrg.insurer_name"
+            }
+          ]
+        },
+        "Size": {
+          "projections": [
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "FinancialSummaryByOrg"
+                        }
+                      },
+                      "Property": "collection_rate_pct"
+                    }
+                  },
+                  "Function": 0
+                }
+              },
+              "queryRef": "Sum(FinancialSummaryByOrg.collection_rate_pct)"
+            }
+          ]
+        },
+        "Tooltips": {
+          "projections": [
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "FinancialSummaryByOrg"
+                        }
+                      },
+                      "Property": "total_claims"
+                    }
+                  },
+                  "Function": 0
+                }
+              },
+              "queryRef": "Sum(FinancialSummaryByOrg.total_claims)"
+            }
+          ]
+        },
+        "X": {
+          "projections": [
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "FinancialSummaryByOrg"
+                    }
+                  },
+                  "Function": 2
+                }
+              },
+              "queryRef": "Count(FinancialSummaryByOrg)"
+            }
+          ]
+        },
+        "Y": {
+          "projections": [
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "FinancialSummaryByOrg"
+                        }
+                      },
+                      "Property": "avg_claim_amount"
+                    }
+                  },
+                  "Function": 0
+                }
+              },
+              "queryRef": "Sum(FinancialSummaryByOrg.avg_claim_amount)"
+            }
+          ]
+        }
+      }
+    },
+    "objects": {
+      "categoryAxis": [
+        {
+          "properties": {
+            "showAxisTitle": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "valueAxis": [
+        {
+          "properties": {
+            "showAxisTitle": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "visualContainerObjects": {
+      "dropShadow": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "color": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#A6ADC6'"
+                    }
+                  }
+                }
+              }
+            },
+            "preset": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Custom'"
+                }
+              }
+            },
+            "shadowSpread": {
+              "expr": {
+                "Literal": {
+                  "Value": "0L"
+                }
+              }
+            },
+            "shadowBlur": {
+              "expr": {
+                "Literal": {
+                  "Value": "5L"
+                }
+              }
+            },
+            "angle": {
+              "expr": {
+                "Literal": {
+                  "Value": "90L"
+                }
+              }
+            },
+            "shadowDistance": {
+              "expr": {
+                "Literal": {
+                  "Value": "4L"
+                }
+              }
+            },
+            "transparency": {
+              "expr": {
+                "Literal": {
+                  "Value": "85L"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "background": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "border": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "color": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#E0E0E0'"
+                    }
+                  }
+                }
+              }
+            },
+            "radius": {
+              "expr": {
+                "Literal": {
+                  "Value": "4L"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "title": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Count of FinancialSummaryByOrg, Sum of avg_claim_amount, Sum of collection_rate_pct and Sum of total_claims by insurer_name'"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "455f783b4c432f23eb4d",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "FinancialSummaryByOrg"
+              }
+            },
+            "Property": "insurer_name"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "7b934cdb75882ca60ce6",
+        "field": {
+          "Aggregation": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "FinancialSummaryByOrg"
+              }
+            },
+            "Function": 2
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "53ab7e9c66fbefd7ff7f",
+        "field": {
+          "Aggregation": {
+            "Expression": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "FinancialSummaryByOrg"
+                  }
+                },
+                "Property": "avg_claim_amount"
+              }
+            },
+            "Function": 0
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "cae70d8ef3f4202366dc",
+        "field": {
+          "Aggregation": {
+            "Expression": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "FinancialSummaryByOrg"
+                  }
+                },
+                "Property": "collection_rate_pct"
+              }
+            },
+            "Function": 0
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "cab975758828c4701313",
+        "field": {
+          "Aggregation": {
+            "Expression": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "FinancialSummaryByOrg"
+                  }
+                },
+                "Property": "total_claims"
+              }
+            },
+            "Function": 0
+          }
+        },
+        "type": "Advanced"
+      }
+    ]
+  },
+  "howCreated": "Copilot"
+}

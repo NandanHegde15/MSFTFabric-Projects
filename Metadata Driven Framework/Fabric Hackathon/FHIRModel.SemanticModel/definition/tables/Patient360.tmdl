@@ -1,0 +1,355 @@
+table Patient360
+	lineageTag: b8b4872d-e834-4a21-a0a8-4a2ac3572d4b
+	sourceLineageTag: [Gold].[Patient360]
+
+	column patient_id
+		dataType: string
+		lineageTag: c34504a4-8d98-4f93-ba8c-600b4dde48bb
+		sourceLineageTag: patient_id
+		summarizeBy: none
+		sourceColumn: patient_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column full_name
+		dataType: string
+		lineageTag: 403f5477-a670-4081-bba4-063fde2fb4d2
+		sourceLineageTag: full_name
+		summarizeBy: none
+		sourceColumn: full_name
+
+		annotation SummarizationSetBy = Automatic
+
+	column name_family
+		dataType: string
+		lineageTag: 9e0ec6b9-f8f5-46cb-92d7-88b12d5cc233
+		sourceLineageTag: name_family
+		summarizeBy: none
+		sourceColumn: name_family
+
+		annotation SummarizationSetBy = Automatic
+
+	column name_given
+		dataType: string
+		lineageTag: 0b3b2616-e53c-4047-9c9c-2bb71a6eb6da
+		sourceLineageTag: name_given
+		summarizeBy: none
+		sourceColumn: name_given
+
+		annotation SummarizationSetBy = Automatic
+
+	column gender
+		dataType: string
+		lineageTag: aadf4b0b-e061-4a05-a4c5-d1a3b40d087e
+		sourceLineageTag: gender
+		summarizeBy: none
+		sourceColumn: gender
+
+		annotation SummarizationSetBy = Automatic
+
+	column birth_date
+		dataType: string
+		lineageTag: 3e7b684b-85e4-4c96-8524-fbf277a7e65a
+		sourceLineageTag: birth_date
+		summarizeBy: none
+		sourceColumn: birth_date
+
+		annotation SummarizationSetBy = Automatic
+
+	column age_years
+		dataType: int64
+		formatString: 0
+		lineageTag: 3c6377c3-0eff-4b18-8a5b-0893611de445
+		sourceLineageTag: age_years
+		summarizeBy: none
+		sourceColumn: age_years
+
+		annotation SummarizationSetBy = Automatic
+
+	column address_line
+		dataType: string
+		lineageTag: 18967b88-0eb8-4f2f-9460-5bbb8fb3fade
+		sourceLineageTag: address_line
+		summarizeBy: none
+		sourceColumn: address_line
+
+		annotation SummarizationSetBy = Automatic
+
+	column address_city
+		dataType: string
+		lineageTag: 2da626ed-8d6e-4670-ae58-4bc533b49abf
+		sourceLineageTag: address_city
+		summarizeBy: none
+		sourceColumn: address_city
+
+		annotation SummarizationSetBy = Automatic
+
+	column address_state
+		dataType: string
+		lineageTag: be97b156-a151-4a6c-8337-be545210b427
+		sourceLineageTag: address_state
+		summarizeBy: none
+		sourceColumn: address_state
+
+		annotation SummarizationSetBy = Automatic
+
+	column address_postalcode
+		dataType: string
+		lineageTag: 4ab05188-4311-4e61-bfb0-4c29d12bd22e
+		sourceLineageTag: address_postalcode
+		summarizeBy: none
+		sourceColumn: address_postalcode
+
+		annotation SummarizationSetBy = Automatic
+
+	column phone_or_email
+		dataType: string
+		lineageTag: 17cc2bff-ab84-4a80-ba1b-7d2cabfbdb14
+		sourceLineageTag: phone_or_email
+		summarizeBy: none
+		sourceColumn: phone_or_email
+
+		annotation SummarizationSetBy = Automatic
+
+	column coverage_id
+		dataType: string
+		lineageTag: c3095995-32d1-40b6-a1fb-77ac2a73f2f3
+		sourceLineageTag: coverage_id
+		summarizeBy: none
+		sourceColumn: coverage_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column coverage_type
+		dataType: string
+		lineageTag: fa6e76a2-2165-4f0e-b074-05962ab21d92
+		sourceLineageTag: coverage_type
+		summarizeBy: none
+		sourceColumn: coverage_type
+
+		annotation SummarizationSetBy = Automatic
+
+	column coverage_class
+		dataType: string
+		lineageTag: e69c05b3-65af-4899-b5a6-1c7fc67d29b2
+		sourceLineageTag: coverage_class
+		summarizeBy: none
+		sourceColumn: coverage_class
+
+		annotation SummarizationSetBy = Automatic
+
+	column insurance_network
+		dataType: string
+		lineageTag: 66b9ef0d-1dcb-4f70-97d6-f03759cc9609
+		sourceLineageTag: insurance_network
+		summarizeBy: none
+		sourceColumn: insurance_network
+
+		annotation SummarizationSetBy = Automatic
+
+	column coverage_start
+		dataType: string
+		lineageTag: 43bd387b-8554-4ad4-a189-f27ffa36b190
+		sourceLineageTag: coverage_start
+		summarizeBy: none
+		sourceColumn: coverage_start
+
+		annotation SummarizationSetBy = Automatic
+
+	column coverage_end
+		dataType: string
+		lineageTag: 131216fa-64cc-4cc0-8824-8beb05056c39
+		sourceLineageTag: coverage_end
+		summarizeBy: none
+		sourceColumn: coverage_end
+
+		annotation SummarizationSetBy = Automatic
+
+	column member_relationship
+		dataType: string
+		lineageTag: 7e88d8cb-39ac-4d2e-a8dc-455582c3d5e2
+		sourceLineageTag: member_relationship
+		summarizeBy: none
+		sourceColumn: member_relationship
+
+		annotation SummarizationSetBy = Automatic
+
+	column subscriber_member_id
+		dataType: string
+		lineageTag: b47ac885-d20e-40c3-ba57-7df8006ca460
+		sourceLineageTag: subscriber_member_id
+		summarizeBy: none
+		sourceColumn: subscriber_member_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column payor_display
+		dataType: string
+		lineageTag: 1d91e3bc-cd3f-4422-ae24-ac284e383c85
+		sourceLineageTag: payor_display
+		summarizeBy: none
+		sourceColumn: payor_display
+
+		annotation SummarizationSetBy = Automatic
+
+	column payor_org_name
+		dataType: string
+		lineageTag: b12e2166-5375-4650-a853-f34398e80723
+		sourceLineageTag: payor_org_name
+		summarizeBy: none
+		sourceColumn: payor_org_name
+
+		annotation SummarizationSetBy = Automatic
+
+	column total_claims
+		dataType: int64
+		formatString: 0
+		lineageTag: c0f95f56-fdca-4595-9adf-11fd2a89ef4d
+		sourceLineageTag: total_claims
+		summarizeBy: none
+		sourceColumn: total_claims
+
+		annotation SummarizationSetBy = Automatic
+
+	column total_claimed_amount
+		dataType: double
+		lineageTag: da9273d1-6700-468f-867a-74a543d15f1a
+		sourceLineageTag: total_claimed_amount
+		summarizeBy: none
+		sourceColumn: total_claimed_amount
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column first_claim_date
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 1887b622-2635-4fb2-9be9-0682e0cdcf28
+		sourceLineageTag: first_claim_date
+		summarizeBy: none
+		sourceColumn: first_claim_date
+
+		annotation SummarizationSetBy = Automatic
+
+	column last_claim_date
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 1dd8769e-462a-4d5c-bd5c-e77ccfbd93a9
+		sourceLineageTag: last_claim_date
+		summarizeBy: none
+		sourceColumn: last_claim_date
+
+		annotation SummarizationSetBy = Automatic
+
+	column active_claims
+		dataType: int64
+		formatString: 0
+		lineageTag: c8519c8d-9f11-426f-9c97-081dda2875bf
+		sourceLineageTag: active_claims
+		summarizeBy: none
+		sourceColumn: active_claims
+
+		annotation SummarizationSetBy = Automatic
+
+	column cancelled_claims
+		dataType: int64
+		formatString: 0
+		lineageTag: 4e12273d-d24d-4460-8d9b-67eb838091b5
+		sourceLineageTag: cancelled_claims
+		summarizeBy: none
+		sourceColumn: cancelled_claims
+
+		annotation SummarizationSetBy = Automatic
+
+	column total_invoices
+		dataType: int64
+		formatString: 0
+		lineageTag: 64e2c918-42c7-45ca-a994-5e27389d88cb
+		sourceLineageTag: total_invoices
+		summarizeBy: none
+		sourceColumn: total_invoices
+
+		annotation SummarizationSetBy = Automatic
+
+	column total_gross_billed
+		dataType: double
+		lineageTag: ed1b8fdc-0795-46e8-b2cf-10186d2e7065
+		sourceLineageTag: total_gross_billed
+		summarizeBy: none
+		sourceColumn: total_gross_billed
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column total_net_billed
+		dataType: double
+		lineageTag: e46502b6-a0a7-42c3-8a4e-a5541fc2ef03
+		sourceLineageTag: total_net_billed
+		summarizeBy: none
+		sourceColumn: total_net_billed
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column total_discounts
+		dataType: double
+		lineageTag: 12683e79-0b8a-4913-8d5e-5b4369571ede
+		sourceLineageTag: total_discounts
+		summarizeBy: none
+		sourceColumn: total_discounts
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column last_invoice_date
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 90ed9eb1-b683-4c31-8b43-b917412c57a6
+		sourceLineageTag: last_invoice_date
+		summarizeBy: none
+		sourceColumn: last_invoice_date
+
+		annotation SummarizationSetBy = Automatic
+
+	column net_to_gross_pct
+		dataType: double
+		lineageTag: 846c5815-4d77-47b7-8c50-9b8f93d2b653
+		sourceLineageTag: net_to_gross_pct
+		summarizeBy: none
+		sourceColumn: net_to_gross_pct
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column patient_last_updated
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: fe191716-1ea8-46bd-974e-468546568ced
+		sourceLineageTag: patient_last_updated
+		summarizeBy: none
+		sourceColumn: patient_last_updated
+
+		annotation SummarizationSetBy = Automatic
+
+	column gold_loaded_at
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: a93f42a5-6264-4d3f-a9de-6c0a571a4613
+		sourceLineageTag: gold_loaded_at
+		summarizeBy: none
+		sourceColumn: gold_loaded_at
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Patient360 = entity
+		mode: directLake
+		source
+			entityName: Patient360
+			schemaName: Gold
+			expressionSource: 'DirectLake - HackathonWH'
+

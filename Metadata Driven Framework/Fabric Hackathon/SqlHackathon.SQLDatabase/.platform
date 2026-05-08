@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "SQLDatabase",
+    "displayName": "SqlHackathon"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "6dd897d0-cacc-a7b9-495a-bc810047bc62"
+  }
+}

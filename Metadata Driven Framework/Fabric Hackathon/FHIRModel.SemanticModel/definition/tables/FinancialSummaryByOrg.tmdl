@@ -1,0 +1,319 @@
+table FinancialSummaryByOrg
+	lineageTag: 4e3fc82a-7da8-4995-903b-3a3f477769bb
+	sourceLineageTag: [Gold].[FinancialSummaryByOrg]
+
+	column report_month
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: d04b54ef-66fb-4dd8-9a9f-2a6784fe088f
+		sourceLineageTag: report_month
+		summarizeBy: none
+		sourceColumn: report_month
+
+		annotation SummarizationSetBy = Automatic
+
+	column claim_year
+		dataType: int64
+		formatString: 0
+		lineageTag: 7019a0ad-228c-4a0a-8fd5-af4aa3366644
+		sourceLineageTag: claim_year
+		summarizeBy: sum
+		sourceColumn: claim_year
+
+		annotation SummarizationSetBy = Automatic
+
+	column claim_month
+		dataType: int64
+		formatString: 0
+		lineageTag: daaff8ab-749b-46d1-8ea4-eded09b91936
+		sourceLineageTag: claim_month
+		summarizeBy: sum
+		sourceColumn: claim_month
+
+		annotation SummarizationSetBy = Automatic
+
+	column claim_use
+		dataType: string
+		lineageTag: 2eaf40d0-b085-457f-862a-68d4e8768fad
+		sourceLineageTag: claim_use
+		summarizeBy: none
+		sourceColumn: claim_use
+
+		annotation SummarizationSetBy = Automatic
+
+	column claim_type
+		dataType: string
+		lineageTag: be293a12-3462-44ce-8922-b104b5616c3e
+		sourceLineageTag: claim_type
+		summarizeBy: none
+		sourceColumn: claim_type
+
+		annotation SummarizationSetBy = Automatic
+
+	column insurer_org_id
+		dataType: string
+		lineageTag: 2e7c2f9a-b45f-4d1e-91f9-baadd2d28dda
+		sourceLineageTag: insurer_org_id
+		summarizeBy: none
+		sourceColumn: insurer_org_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column insurer_name
+		dataType: string
+		lineageTag: 3bd52bdf-0c36-456e-9f1f-ad3a6a1435ad
+		sourceLineageTag: insurer_name
+		summarizeBy: none
+		sourceColumn: insurer_name
+
+		annotation SummarizationSetBy = Automatic
+
+	column insurer_type
+		dataType: string
+		lineageTag: 94756f3c-7c7f-4ab2-91f3-de010769dae8
+		sourceLineageTag: insurer_type
+		summarizeBy: none
+		sourceColumn: insurer_type
+
+		annotation SummarizationSetBy = Automatic
+
+	column insurer_state
+		dataType: string
+		lineageTag: 3c5d035c-63b8-48b2-93f6-a1c43a070d41
+		sourceLineageTag: insurer_state
+		summarizeBy: none
+		sourceColumn: insurer_state
+
+		annotation SummarizationSetBy = Automatic
+
+	column facility_id
+		dataType: string
+		lineageTag: b7336175-8a5a-4608-bb33-836d2d38a7f3
+		sourceLineageTag: facility_id
+		summarizeBy: none
+		sourceColumn: facility_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column facility_name
+		dataType: string
+		lineageTag: fdd0ea4c-c924-4680-895f-afbaa13fa0c9
+		sourceLineageTag: facility_name
+		summarizeBy: none
+		sourceColumn: facility_name
+
+		annotation SummarizationSetBy = Automatic
+
+	column facility_city
+		dataType: string
+		lineageTag: d7f42bb1-1be5-4497-b8de-72e34af40efc
+		sourceLineageTag: facility_city
+		summarizeBy: none
+		sourceColumn: facility_city
+
+		annotation SummarizationSetBy = Automatic
+
+	column facility_state
+		dataType: string
+		lineageTag: 4c117a5a-bde6-4371-9a4c-357894782f66
+		sourceLineageTag: facility_state
+		summarizeBy: none
+		sourceColumn: facility_state
+
+		annotation SummarizationSetBy = Automatic
+
+	column patient_state
+		dataType: string
+		lineageTag: b1d595cc-9d1b-4bb0-9c84-d5eb15ba0072
+		sourceLineageTag: patient_state
+		summarizeBy: none
+		sourceColumn: patient_state
+
+		annotation SummarizationSetBy = Automatic
+
+	column total_claims
+		dataType: int64
+		formatString: 0
+		lineageTag: 9f3a6e23-62bf-4e20-b483-4568c8aa30a2
+		sourceLineageTag: total_claims
+		summarizeBy: sum
+		sourceColumn: total_claims
+
+		annotation SummarizationSetBy = Automatic
+
+	column unique_patients
+		dataType: int64
+		formatString: 0
+		lineageTag: e0779f0e-f87b-47f4-a404-9a523e7afe0e
+		sourceLineageTag: unique_patients
+		summarizeBy: sum
+		sourceColumn: unique_patients
+
+		annotation SummarizationSetBy = Automatic
+
+	column total_invoices
+		dataType: int64
+		formatString: 0
+		lineageTag: 71e3c61c-1b51-460a-bae2-30a6f1ab2fe1
+		sourceLineageTag: total_invoices
+		summarizeBy: sum
+		sourceColumn: total_invoices
+
+		annotation SummarizationSetBy = Automatic
+
+	column total_line_items
+		dataType: int64
+		formatString: 0
+		lineageTag: 2ce55091-ea40-429f-a60e-6df9424ff411
+		sourceLineageTag: total_line_items
+		summarizeBy: sum
+		sourceColumn: total_line_items
+
+		annotation SummarizationSetBy = Automatic
+
+	column total_units_claimed
+		dataType: double
+		lineageTag: aab8f184-deb6-41f9-93e6-f57b618a72a3
+		sourceLineageTag: total_units_claimed
+		summarizeBy: sum
+		sourceColumn: total_units_claimed
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column active_claims
+		dataType: int64
+		formatString: 0
+		lineageTag: fec12841-61f6-4c66-9ecb-80aab59be81d
+		sourceLineageTag: active_claims
+		summarizeBy: sum
+		sourceColumn: active_claims
+
+		annotation SummarizationSetBy = Automatic
+
+	column cancelled_claims
+		dataType: int64
+		formatString: 0
+		lineageTag: 0666cba2-a2cd-48a7-ad8c-ef99cb9dc5f0
+		sourceLineageTag: cancelled_claims
+		summarizeBy: sum
+		sourceColumn: cancelled_claims
+
+		annotation SummarizationSetBy = Automatic
+
+	column errored_claims
+		dataType: int64
+		formatString: 0
+		lineageTag: 23ac4a0e-9934-457c-9b3e-9038ab50ffe4
+		sourceLineageTag: errored_claims
+		summarizeBy: sum
+		sourceColumn: errored_claims
+
+		annotation SummarizationSetBy = Automatic
+
+	column total_claimed_amount
+		dataType: double
+		lineageTag: 3d6b7b43-bf38-461b-a9ec-7c5491eac783
+		sourceLineageTag: total_claimed_amount
+		summarizeBy: sum
+		sourceColumn: total_claimed_amount
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column total_items_net
+		dataType: double
+		lineageTag: 86bb772b-23c3-40a6-bc36-b152bfa52a8e
+		sourceLineageTag: total_items_net
+		summarizeBy: sum
+		sourceColumn: total_items_net
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column total_invoiced_gross
+		dataType: double
+		lineageTag: 0d31d705-973b-4094-827f-783f4ad53fcd
+		sourceLineageTag: total_invoiced_gross
+		summarizeBy: sum
+		sourceColumn: total_invoiced_gross
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column total_invoiced_net
+		dataType: double
+		lineageTag: a149243a-e885-43df-9bb4-13167c84a282
+		sourceLineageTag: total_invoiced_net
+		summarizeBy: sum
+		sourceColumn: total_invoiced_net
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column total_discounts_given
+		dataType: double
+		lineageTag: 92253a73-4ac1-4a65-98d6-3600127a6cf8
+		sourceLineageTag: total_discounts_given
+		summarizeBy: sum
+		sourceColumn: total_discounts_given
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column collection_rate_pct
+		dataType: double
+		lineageTag: fea9981d-9dcc-4731-9a65-7c9d7e4b80da
+		sourceLineageTag: collection_rate_pct
+		summarizeBy: sum
+		sourceColumn: collection_rate_pct
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column avg_claim_amount
+		dataType: double
+		lineageTag: 39df762e-8d6d-4c46-aa36-4c3f277d83d9
+		sourceLineageTag: avg_claim_amount
+		summarizeBy: sum
+		sourceColumn: avg_claim_amount
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column avg_invoice_net
+		dataType: double
+		lineageTag: 0de016ee-2307-4ef1-9890-16c6e2b38415
+		sourceLineageTag: avg_invoice_net
+		summarizeBy: sum
+		sourceColumn: avg_invoice_net
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column gold_loaded_at
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 3bb4ed8d-0b38-4372-b2ef-0fd1bca0cab6
+		sourceLineageTag: gold_loaded_at
+		summarizeBy: none
+		sourceColumn: gold_loaded_at
+
+		annotation SummarizationSetBy = Automatic
+
+	partition FinancialSummaryByOrg = entity
+		mode: directLake
+		source
+			entityName: FinancialSummaryByOrg
+			schemaName: Gold
+			expressionSource: 'DirectLake - HackathonWH'
+
