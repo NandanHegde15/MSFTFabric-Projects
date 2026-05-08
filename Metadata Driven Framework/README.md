@@ -1,8 +1,8 @@
-# Fabric Hackathon - Healthcare Data Analytics Platform
+# Healthcare Data Analytics Platform
 
 ## Introduction
 
-**Fabric Hackathon** is a Microsoft Fabric-based end-to-end healthcare analytics platform built on FHIR (Fast Healthcare Interoperability Resources) standards. This project demonstrates modern data engineering practices including:
+**Metadata Driven Framework** is a Microsoft Fabric-based end-to-end healthcare analytics platform built on FHIR (Fast Healthcare Interoperability Resources) standards. This project demonstrates modern data engineering practices including:
 
 - **Multi-layer data architecture** (Raw → Silver → Gold layers)
 - **FHIR healthcare data modeling** with support for patients, claims, coverage, and organizations
