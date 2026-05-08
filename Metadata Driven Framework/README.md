@@ -11,6 +11,8 @@
 - **Row-level security** for data governance and privacy
 - **AI-powered insights** using Copilot & Data Agent capabilities
 
+Demo : https://www.youtube.com/watch?v=Z7mjHmX8-40
+
 ### Key Objectives
 ✅ Ingest healthcare data from FHIR-compliant APIs
 ✅ Transform and standardize data following healthcare best practices
