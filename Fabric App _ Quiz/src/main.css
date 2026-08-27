@@ -1,0 +1,264 @@
+@import 'tailwindcss';
+
+@theme inline {
+  --font-sans: 'Inter', ui-sans-serif, system-ui, sans-serif;
+  --font-mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+}
+
+/*
+ * Accent is driven by the exam currently being studied, set as a data-exam
+ * attribute on <html>. Everything else in the UI is neutral slate, so the
+ * accent alone tells you which certification you are working on.
+ */
+:root {
+  --accent: oklch(0.53 0.21 288);
+  --accent-strong: oklch(0.45 0.21 288);
+  --accent-soft: oklch(0.96 0.025 288);
+  --accent-border: oklch(0.86 0.07 288);
+}
+
+:root[data-exam='DP-700'] {
+  --accent: oklch(0.52 0.11 210);
+  --accent-strong: oklch(0.43 0.11 210);
+  --accent-soft: oklch(0.96 0.03 210);
+  --accent-border: oklch(0.84 0.06 210);
+}
+
+@layer base {
+  *,
+  ::after,
+  ::before,
+  ::backdrop,
+  ::file-selector-button {
+    border-color: var(--color-slate-200, currentColor);
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    font-family: var(--font-sans);
+    background-color: var(--color-slate-50);
+    color: var(--color-slate-900);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 2px;
+  }
+}
+
+@layer components {
+  .card {
+    background: #fff;
+    border: 1px solid var(--color-slate-200);
+    border-radius: 1rem;
+    box-shadow: 0 1px 2px rgb(15 23 42 / 0.04);
+  }
+
+  .accent-text {
+    color: var(--accent);
+  }
+
+  .accent-bg {
+    background-color: var(--accent);
+  }
+
+  .accent-soft-bg {
+    background-color: var(--accent-soft);
+  }
+
+  .accent-border {
+    border-color: var(--accent-border);
+  }
+
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    border-radius: 0.75rem;
+    padding: 0.625rem 1.125rem;
+    font-size: 0.875rem;
+    font-weight: 500;
+    line-height: 1.25rem;
+    transition:
+      background-color 0.15s ease,
+      color 0.15s ease,
+      border-color 0.15s ease,
+      opacity 0.15s ease;
+    cursor: pointer;
+  }
+
+  .btn:disabled {
+    opacity: 0.45;
+    cursor: not-allowed;
+  }
+
+  .btn-primary {
+    background-color: var(--accent);
+    color: #fff;
+  }
+
+  .btn-primary:hover:not(:disabled) {
+    background-color: var(--accent-strong);
+  }
+
+  .btn-ghost {
+    background-color: #fff;
+    color: var(--color-slate-700);
+    border: 1px solid var(--color-slate-200);
+  }
+
+  .btn-ghost:hover:not(:disabled) {
+    background-color: var(--color-slate-50);
+    color: var(--color-slate-900);
+  }
+
+  .code-line {
+    font-family: var(--font-mono);
+    font-size: 0.8125rem;
+    line-height: 1.6;
+    white-space: pre;
+  }
+}
+
+/* The flip animation used by the flashcard deck. */
+.flip-scene {
+  perspective: 1600px;
+}
+
+.flip-inner {
+  position: relative;
+  transform-style: preserve-3d;
+  transition: transform 0.5s cubic-bezier(0.2, 0.7, 0.3, 1);
+}
+
+.flip-inner.is-flipped {
+  transform: rotateY(180deg);
+}
+
+.flip-face {
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+
+.flip-face-back {
+  position: absolute;
+  inset: 0;
+  transform: rotateY(180deg);
+  overflow-y: auto;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .flip-inner {
+    transition: none;
+  }
+}
+
+/* ---------------------------------------------------------- castle journey */
+
+@keyframes castle-pulse {
+  0%,
+  100% {
+    r: 15;
+    opacity: 0.22;
+  }
+  50% {
+    r: 20;
+    opacity: 0.08;
+  }
+}
+
+.castle-pulse {
+  animation: castle-pulse 2.2s ease-in-out infinite;
+}
+
+@keyframes dragon-breathe {
+  0%,
+  100% {
+    transform: translateY(0) scale(1);
+  }
+  50% {
+    transform: translateY(-5px) scale(1.015);
+  }
+}
+
+.dragon-breathe {
+  animation: dragon-breathe 3.4s ease-in-out infinite;
+  transform-origin: center bottom;
+}
+
+@keyframes dragon-hit {
+  0% {
+    transform: translateX(0);
+    filter: none;
+  }
+  25% {
+    transform: translateX(-9px) rotate(-2deg);
+    filter: brightness(1.7) saturate(0.4);
+  }
+  60% {
+    transform: translateX(7px) rotate(1.5deg);
+    filter: brightness(1.3);
+  }
+  100% {
+    transform: translateX(0);
+    filter: none;
+  }
+}
+
+.dragon-hit {
+  animation: dragon-hit 0.45s ease-out;
+  transform-origin: center bottom;
+}
+
+@keyframes dragon-slain {
+  0% {
+    transform: rotate(0) translateY(0);
+    opacity: 1;
+  }
+  100% {
+    transform: rotate(14deg) translateY(16px);
+    opacity: 0.55;
+  }
+}
+
+.dragon-slain {
+  animation: dragon-slain 1s ease-in forwards;
+  transform-origin: center bottom;
+}
+
+@keyframes dragon-flame {
+  0%,
+  100% {
+    transform: scaleX(1) translateX(0);
+    opacity: 0.9;
+  }
+  50% {
+    transform: scaleX(1.22) translateX(5px);
+    opacity: 1;
+  }
+}
+
+.dragon-flame {
+  animation: dragon-flame 1.5s ease-in-out infinite;
+  transform-origin: left center;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .castle-pulse,
+  .dragon-breathe,
+  .dragon-hit,
+  .dragon-flame {
+    animation: none;
+  }
+
+  .dragon-slain {
+    animation: none;
+    opacity: 0.55;
+  }
+}
