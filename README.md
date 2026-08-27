@@ -1,10 +1,10 @@
 # MSFTFabric-Projects
 
-A comprehensive collection of Microsoft Fabric projects demonstrating enterprise data solutions with modern cloud architecture, analytics, and automation. This repository showcases advanced implementations using T-SQL, Python, and Jupyter Notebooks (60.4%, 26.7%, and 12.9% respectively).
+A comprehensive collection of Microsoft Fabric projects demonstrating enterprise data solutions with modern cloud architecture, analytics, and automation. This repository showcases advanced implementations across data engineering, analytics, and learning platforms.
 
 ## 📋 Repository Overview
 
-This repository contains production-grade Microsoft Fabric implementations for enterprise scenarios including healthcare analytics, data governance, and cloud infrastructure automation. Each project demonstrates best practices in data engineering, analytics, and automation using the Microsoft data and AI platform.
+This repository contains production-grade Microsoft Fabric implementations for enterprise scenarios including healthcare analytics, data governance, cloud infrastructure automation, and interactive learning applications. Each project demonstrates best practices in data engineering, architecture patterns, and modern cloud technologies.
 
 **Language Composition:**
 - **T-SQL (60.4%)** - Database design, transformations, and data pipelines
@@ -73,6 +73,38 @@ An intelligent automation framework that streamlines Azure firewall management w
 
 ---
 
+### 3. **Fabric App - Quiz** - Interactive DP-600/DP-700 Study Application
+
+A public, no-sign-in interactive study platform for Microsoft Fabric certifications (DP-600 Analytics Engineer Associate and DP-700 Data Engineer Associate), deployed as a Fabric data app.
+
+**Key Features:**
+- **Interactive 3D Ecosystem Model** - Visualize all 90+ Fabric components across four hierarchical levels
+- **Leitner Spaced Repetition** - Intelligent flashcard system for SKUs, CU calculations, workspace roles, and more
+- **Scenario Quiz** - Multi-select questions with detailed explanations covering exam objectives
+- **Spot the Error** - Identify bugs in queries, configurations, and briefing notes
+- **Capacity Lab** - Interactive CU calculator and workload builder with throttling analysis
+- **Castle Journey Game** - Gamified quiz experience with six stages, hearts, and a dragon boss battle
+- **Anonymous Leaderboard** - Public scoreboard with player profiles and performance tracking
+- **Progress Tracking** - Per-domain readiness weighted by exam distribution
+- **Built-in Text-to-Speech** - Every explanation and flashcard includes voice narration via browser speech synthesis
+
+**Technologies:**
+- Microsoft Fabric Data Apps (Rayfin)
+- TypeScript/React for frontend
+- three.js for 3D visualization
+- Rayfin backend for community leaderboard
+- OneLake static hosting
+
+**Use Cases:**
+- Self-paced exam preparation for DP-600 and DP-700
+- Community learning platform with public leaderboards
+- Interactive component exploration of the Fabric ecosystem
+- Gamified knowledge retention through spaced repetition and game mechanics
+
+📖 [View Full Documentation](Fabric%20App%20_%20Quiz/README.md)
+
+---
+
 ## 🏗️ Architecture Highlights
 
 ### Common Architectural Patterns
@@ -89,7 +121,7 @@ Raw Data Layer → Bronze → Silver Layer → Gold Layer → Analytics & Report
 4. **Consumption** - Power BI, APIs, and downstream systems
 
 **Technology Stack**
-- **Data Platform:** Microsoft Fabric (Warehouse, Lakehouse, Notebooks)
+- **Data Platform:** Microsoft Fabric (Warehouse, Lakehouse, Notebooks, Data Apps)
 - **Orchestration:** Data Pipelines, dbt
 - **Computing:** PySpark, Python, T-SQL
 - **Analytics:** Power BI, Semantic Models
@@ -109,6 +141,7 @@ Raw Data Layer → Bronze → Silver Layer → Gold Layer → Analytics & Report
 | **Automation** | Scheduled pipelines, event-driven workflows, Azure integration |
 | **Governance** | Row-level security, metadata management, audit trails |
 | **Security** | Encryption, role-based access, compliance frameworks |
+| **Interactive Apps** | Fabric data apps, community platforms, gamified experiences |
 
 ---
 
@@ -119,6 +152,7 @@ Raw Data Layer → Bronze → Silver Layer → Gold Layer → Analytics & Report
 - VS Code or Visual Studio for development
 - Git for version control
 - Python 3.8+ (for local development)
+- Node.js 16+ (for Fabric App projects)
 - Basic SQL and T-SQL knowledge
 
 ### Quick Start
@@ -131,6 +165,7 @@ Raw Data Layer → Bronze → Silver Layer → Gold Layer → Analytics & Report
 2. **Explore individual projects**
    - Start with [Metadata Driven Framework](Metadata%20Driven%20Framework/) for healthcare analytics
    - or [AutoShield for Azure](AutoShield%20for%20Azure%20_%20Smart%20IP%20Whitelisting%20and%20Firewall%20Sync%20Engine/) for infrastructure automation
+   - or [Fabric App - Quiz](Fabric%20App%20_%20Quiz/) for an interactive learning experience
 
 3. **Follow project-specific setup guides**
    - Each project contains detailed README and setup instructions
@@ -142,7 +177,7 @@ Raw Data Layer → Bronze → Silver Layer → Gold Layer → Analytics & Report
 Each project includes:
 - **README.md** - Project overview and quick start
 - **PROJECT_UNDERSTANDING.md** - Detailed architecture and design
-- **Code files** - Implementation in T-SQL, Python, Jupyter Notebooks
+- **Code files** - Implementation in T-SQL, Python, Jupyter Notebooks, or TypeScript
 - **Configuration guides** - Setup and deployment instructions
 
 ---
@@ -156,6 +191,7 @@ Each project includes:
 | **T-SQL** | Data modeling, ETL, stored procedures, triggers | 60.4% |
 | **Python** | Data processing, automation, Azure integration | 26.7% |
 | **Jupyter Notebooks** | Interactive development, documentation, transformation jobs | 12.9% |
+| **TypeScript/React** | Frontend development, interactive applications | - |
 
 ### Key Technologies
 
@@ -165,6 +201,7 @@ Each project includes:
   - Notebooks (PySpark, Python)
   - Data Pipelines (Orchestration)
   - Semantic Models (Analytics)
+  - Data Apps (Rayfin - Interactive Applications)
 
 - **Data Engineering**
   - dbt (Data Build Tool)
@@ -182,13 +219,19 @@ Each project includes:
   - DAX expressions
   - Semantic modeling
 
+- **Web Development**
+  - React
+  - TypeScript
+  - three.js
+  - Vite
+
 ---
 
 ## 📊 Project Statistics
 
 | Metric | Value |
 |--------|-------|
-| Projects | 2 |
+| Projects | 3 |
 | Primary Language | T-SQL (60.4%) |
 | Repository ID | 1046377511 |
 | Latest Update | 2026 |
@@ -213,6 +256,7 @@ We welcome contributions to improve and expand these projects!
 
 - **SQL:** Follow T-SQL best practices, use clear naming conventions
 - **Python:** Follow PEP 8 style guide
+- **TypeScript:** Follow ESLint and Prettier configurations
 - **Documentation:** Update READMEs and add inline comments
 - **Testing:** Validate all changes before submitting
 
@@ -222,9 +266,11 @@ We welcome contributions to improve and expand these projects!
 
 - **[Metadata Driven Framework](Metadata%20Driven%20Framework/README.md)** - Healthcare analytics platform documentation
 - **[AutoShield for Azure](AutoShield%20for%20Azure%20_%20Smart%20IP%20Whitelisting%20and%20Firewall%20Sync%20Engine/README.md)** - IP automation engine documentation
+- **[Fabric App - Quiz](Fabric%20App%20_%20Quiz/README.md)** - Interactive study application documentation
 - **[Microsoft Fabric Documentation](https://learn.microsoft.com/en-us/fabric/)**
 - **[T-SQL Documentation](https://learn.microsoft.com/en-us/sql/)**
 - **[Python Best Practices](https://peps.python.org/pep-0008/)**
+- **[Rayfin Documentation](https://learn.microsoft.com/en-us/fabric/data-apps/rayfin/)**
 
 ---
 
@@ -235,6 +281,7 @@ We welcome contributions to improve and expand these projects!
 - [dbt Documentation](https://docs.getdbt.com/)
 - [Power BI Best Practices](https://docs.microsoft.com/en-us/power-bi/)
 - [FHIR Standard](https://www.hl7.org/fhir/)
+- [Rayfin Data Apps](https://learn.microsoft.com/en-us/fabric/data-apps/rayfin/)
 
 ---
 
@@ -253,7 +300,6 @@ For questions, issues, or collaboration opportunities:
 
 ---
 
-**Last Updated:** June 2026
+**Last Updated:** August 2026
 
 **Repository Owner:** [NandanHegde15](https://github.com/NandanHegde15)
-
