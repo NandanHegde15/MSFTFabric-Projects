@@ -11,6 +11,27 @@ from OneLake, plus two anonymous-access Rayfin entities — `Learner` and
 > Exam objectives and weightings change — always check the official skills
 > outline before you book.
 
+<img width="987" height="1142" alt="Rayfin1" src="https://github.com/user-attachments/assets/c27c46c1-0b9b-4a41-b131-ae97f46787bb" />
+
+<img width="982" height="1110" alt="Rayfin2" src="https://github.com/user-attachments/assets/b98e149d-291f-4997-aafa-dc3aab246c24" />
+
+<img width="1462" height="1000" alt="Rayfin3" src="https://github.com/user-attachments/assets/9bdfaa26-8c21-4d4b-b2bb-c3686355072a" />
+
+<img width="1450" height="982" alt="Rayfin4" src="https://github.com/user-attachments/assets/e657d4b8-0a2f-46bf-bd5f-74906a6a279f" />
+
+<img width="1492" height="1277" alt="Rayfin5" src="https://github.com/user-attachments/assets/b1a47ff6-dd45-4014-b85a-8b53cb876842" />
+
+<img width="1455" height="935" alt="Rayfin6" src="https://github.com/user-attachments/assets/8176eddf-6a53-4223-8337-440e55d461b9" />
+
+<img width="1005" height="1580" alt="Rayfin7" src="https://github.com/user-attachments/assets/b05eb89b-5c2d-481a-ad69-e0dedeb48441" />
+
+<img width="1930" height="1055" alt="Rayfin8" src="https://github.com/user-attachments/assets/724b84ed-b479-44e4-b4d1-ea5168eaa106" />
+
+<img width="995" height="1322" alt="Rayfin9" src="https://github.com/user-attachments/assets/2e9c4074-431d-4946-a55c-e85c8a7818c0" />
+
+
+
+
 ## What it does
 
 | Tool | What it is for |
@@ -91,7 +112,6 @@ Deploy the backend and run against it:
 npm run dev
 ```
 
-Open [http://localhost:5173](http://localhost:5173).
 
 ## Project structure
 
